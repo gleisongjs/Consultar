@@ -9,12 +9,13 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name="permissao")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Permissao {
+public class Permissao implements Serializable{
 
     @Id
     @GeneratedValue(
@@ -33,7 +34,7 @@ public class Permissao {
 
     @ManyToMany(mappedBy = "permissoes", fetch = FetchType.LAZY)
     @JsonBackReference
-    private List<Pessoa> pessoas;
+    private List<Acesso> acesso;
 
     public int getId() {
         return id;
@@ -51,12 +52,12 @@ public class Permissao {
         this.nome = nome;
     }
 
-    public List<Pessoa> getPessoas() {
-        return pessoas;
+    public List<Acesso> getPessoas() {
+        return acesso;
     }
 
-    public void setPessoas(List<Pessoa> pessoas) {
-        this.pessoas = pessoas;
+    public void setPessoas(List<Acesso> acesso) {
+        this.acesso = acesso;
     }
 }
 

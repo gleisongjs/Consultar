@@ -2,8 +2,6 @@ package com.consultar.config;
 
 
 import com.consultar.entidade.Permissao;
-import com.consultar.entidade.Pessoa;
-import com.consultar.repositorio.PessoaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,30 +14,30 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-
+import com.consultar.repositorio.AcessoRepositorio;
+import com.consultar.entidade.Acesso;
 @Service("userDetailsService")
 @Transactional
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-
     @Autowired
-    private PessoaRepositorio pessoaRepositorio;
+    private AcessoRepositorio pessoaRepositorio;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Pessoa pessoa = pessoaRepositorio.findByEmail(email);
-        if(pessoa!= null) {
+        Acesso acesso = pessoaRepositorio.findByEmail(email);
+        if(acesso!= null) {
             System.out.println("USUARIO ENCONTRADO");
-            List<GrantedAuthority> authorities = this.buildUserAuthority(pessoa.getPermissoes());
-            return this.buildUserForAuthentication(pessoa, authorities);
+            List<GrantedAuthority> authorities = this.buildUserAuthority(acesso.getPermissoes());
+            return this.buildUserForAuthentication(acesso, authorities);
         } else {
             throw new Error("USUARIO NÃO EXISTE");
         }
     }
 
     // conver entidade pessoa para um user(security)
-    private User buildUserForAuthentication(Pessoa pessoa, List<GrantedAuthority> authorities){
-        return new User(pessoa.getEmail(), pessoa.getSenha(), true, true, true, true, authorities);
+    private User buildUserForAuthentication(Acesso acesso, List<GrantedAuthority> authorities){
+        return new User(acesso.getEmail(), acesso.getSenha(), true, true, true, true, authorities);
     }
 
     // converte as permissões de usuário

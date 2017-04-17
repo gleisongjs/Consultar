@@ -1,0 +1,49 @@
+<ion-view view-title="News">
+<ion-nav-bar class="bar-stable">
+        <ion-nav-buttons side="right" >
+            <a href="#/tab/doctor" class="button button-icon button-clear">
+              <img src="img/ic3.png"/>
+            </a>
+        </ion-nav-buttons>
+
+        <ion-nav-buttons side="left">
+            <a href="#/login" class="button button-icon button-clear left_btn">
+              <img src="img/ic1.png"/>
+            </a>
+            <button class="button button-icon button-clear ser_icon left_btn" ng-click="search_doc()">
+              <img src="img/ic2.png"/>
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    
+        <div ng-class="{'animated slideInRight':search_input}" class="bar bar-subheader">
+            <div class="list ser_inpt" ng-if="search_input">
+                <label class="item item-input">
+                  <input type="text" placeholder="Search">
+                </label>
+            </div>
+        </div>  
+             
+  <ion-content class="main_bg hospital_list">
+
+  <div class="content">
+    <a href="#/tab/news-detail"
+       collection-repeat="item in news"
+       collection-item-width="'100%'"
+       collection-item-height="220px">
+      
+      <div class="news_list" style="background:url({{item.img}})no-repeat; background-size: 100% 100%;">
+         <div class="news_data">
+            <span class="date">May 29, 2014</span>
+            <p class="title_hosp">Sweden hospital</p>
+            <p class="parag">
+            Sesame Noodles -- a super quick and easy to make that's always delicious! Perfect as a side dish, or add in your favorite protein or veggies to make this a main course. | gimmesomeoven 
+            </p>
+         </div>
+      </div>
+    </a>
+   </div>  
+   
+   
+  </ion-content>
+</ion-view>

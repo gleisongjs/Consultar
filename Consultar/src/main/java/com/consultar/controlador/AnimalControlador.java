@@ -3,8 +3,6 @@ package com.consultar.controlador;
 /**
  * Created by Gleisongjs on 20/03/2017.
  */
-import com.consultar.entidade.Animal;
-import com.consultar.repositorio.AnimalRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/animal")
 public class AnimalControlador {
-
+/*
     @Autowired
     AnimalRepositorio repositorio;
 
@@ -53,6 +51,6 @@ public class AnimalControlador {
             repositorio.delete(animal);
         }
     }
-
+*/
 }
 
