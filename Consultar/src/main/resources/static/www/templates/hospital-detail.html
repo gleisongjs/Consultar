@@ -1,0 +1,52 @@
+<ion-view>
+ <ion-nav-bar class="bar-stable det_page">
+        <ion-nav-buttons side="right" >
+            <button class="button button-icon button-clear back_btn" ng-click="myGoBack()">
+              <img src="img/arrow.png"/>
+            </button>
+        </ion-nav-buttons>
+  
+        <ion-nav-buttons side="left">
+             <a href="#/login" class="button button-icon button-clear left_btn">
+              <img src="img/ic1.png"/>
+            </a>
+            <button class="button button-icon button-clear ser_icon left_btn" ng-click="search_doc()">
+              <img src="img/ic2.png"/>
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    
+        <div ng-class="{'animated slideInRight':search_input}" class="bar bar-subheader">
+            <div class="list ser_inpt" ng-if="search_input">
+                <label class="item item-input">
+                  <input type="text" placeholder="Search">
+                </label>
+            </div>
+        </div>  
+             
+  <ion-content class="detail_page hospital_bg" scroll="false">
+    
+  <div class="item_detail" ng-class="{'animated slideInUp':open_detail}">
+      <div class="read_more"   ng-click="readMore()">
+        <i class="ion-ios-more"></i>
+      </div>
+      <div  class="img_doctor" ng-class="{'animated zoomIn':open_detail}">
+           <h3>John Mc Donald</h3>
+           <p>Beauty mouth and teeth</p>
+           <div class="rate">
+                <i class="ion-star"></i>
+                <i class="ion-star"></i>
+                <i class="ion-star"></i>
+                <i class="ion-star in_active"></i>
+                <i class="ion-star in_active"></i>
+           </div>
+     
+      </div>
+    <ion-scroll  direction="y" style="width: 100%; height: 144px" ng-if="open_detail"> 
+    <p class="more_detail">
+    Sesame Noodles -- a super quick and easy to make that's always delicious! Perfect as a side dish, or add in your favorite protein or veggies to make this a main course.</br></br> gimmesomeoven Sesame Noodles -- a super quick and easy to make that's always delicious! Perfect as a side dish, or add in your favorite protein or veggies to super quick and easy to make that's always delicious! Perfect as a side dish, or add in your favorite protein or veggies to make this a main course. | gimmesomeoven 
+    </p>
+    </ion-scroll>
+  </div>
+</ion-content>
+</ion-view>

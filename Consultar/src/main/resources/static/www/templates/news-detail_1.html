@@ -1,0 +1,40 @@
+<ion-view>
+ <ion-nav-bar class="bar-stable det_page">
+        <ion-nav-buttons side="right" >
+            <button class="button button-icon button-clear back_btn" ng-click="myGoBack()">
+              <img src="img/arrow.png"/>
+            </button>
+        </ion-nav-buttons>
+  
+        <ion-nav-buttons side="left">
+            <a href="#/login" class="button button-icon button-clear left_btn">
+              <img src="img/ic1.png"/>
+            </a>
+            <button class="button button-icon button-clear ser_icon left_btn" ng-click="search_doc()">
+              <img src="img/ic2.png"/>
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    
+        <div ng-class="{'animated slideInRight':search_input}" class="bar bar-subheader">
+            <div class="list ser_inpt" ng-if="search_input">
+                <label class="item item-input">
+                  <input type="text" placeholder="Search">
+                </label>
+            </div>
+        </div>  
+             
+  <ion-content>
+ 
+ <div class="news_detail">
+   <img src="img/novembro azul site-20161101-110456.jpg"/>
+   <div class="padding">
+        <p class="title_hosp">Prefeitura chama a atenção para a saúde do homem</p>
+         
+        <p class="news_txt">
+             No mês de novembro, o cuidado com a saúde do homem é intensificada em Anápolis com a campanha Novembro Azul. Durante todo o mês, o viaduto Nelson Mandela e outros pontos estratégicos da cidade estarão iluminados de azul e várias ações serão promovidas nas unidades de saúde da cidade, na etapa do Circuito de Corrida de Rua  do Setor Jamil Miguel e, também, no Parque Ipiranga.Todas as unidades de Saúde da Família promoverão um dia D com palestras, consultas e exames para os homens de sua região, em dias diferentes do mês. Ainda, uma equipe multidisciplinar com médico, nutricionista, fisioterapeuta, enfermeiras e agentes de saúde, serão enviados para a Corrida Noturna do Circuito Anapolino de Corrida de Rua, no dia 19, e no Parque Ipiranga, no dia 26.O movimento Novembro Azul terá como objetivo conscientizar a população sobre os agravos que mais acometem a saúde do homem como doenças cardíacas, colesterol elevado, diabetes, hipertensão, tabagismo, uso de álcool e drogas, sedentarismo, dentre vários outros e não somente a prevenção do câncer de próstata como muitos pensam. O objetivo maior é mudar a cultura e fazer com que homens procurem os serviços de saúde como prevenção antes das doenças surgirem
+        </p>
+   </div>
+ </div>
+</ion-content>
+</ion-view>

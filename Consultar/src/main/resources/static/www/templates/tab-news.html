@@ -1,0 +1,95 @@
+<ion-view view-title="">
+    <div class="bar bar-reader bar-dark">
+        <h1 class="title">  Notícias</h1>
+    </div>
+    <ion-nav-bar class="bar-stable">
+        <ion-nav-buttons side="right" >
+            <a href="#/tab/doctor" class="button button-icon button-clear">
+                <img src="img/ic3.png"/>
+            </a>
+        </ion-nav-buttons>
+
+        <ion-nav-buttons side="left">
+            <a href="#/login" class="button button-icon button-clear left_btn">
+                <img src="img/ic1.png"/>
+            </a>
+            <button class="button button-icon button-clear ser_icon left_btn" ng-click="search_doc()">
+                <img src="img/ic2.png"/>
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <div ng-class="{'animated slideInRight':search_input}" class="bar bar-subheader">
+        <div class="list ser_inpt" ng-if="search_input">
+            <label class="item item-input">
+                <input type="text" placeholder="Buscar">
+            </label>
+        </div>
+    </div>  
+
+    <ion-content class="hospital_list" style="background:#333">
+
+        <div class="" style="padding-top: 35px;">
+            
+            <a href="#/tab/news-detail_1"
+               collection-item-width="'100%'"
+               collection-item-height="220px">
+
+                <div class="news_list" style="background:url('img/novembro azul site-20161101-110456.jpg')no-repeat; background-size: 100% 100%;">
+                    <div class="news_data">
+                        <p class="title_hosp">Atenção para a saúde do homem</p>
+                        <p class="parag">
+                            No mês de novembro, o cuidado com a saúde do homem é intensificada em Anápolis com a campanha Novembro Azul
+
+                        </p>
+                    </div>
+                </div>
+            </a>
+            
+                       
+            <a href="#/tab/news-detail"
+               collection-item-width="'100%'"
+               collection-item-height="220px">
+
+                <div class="news_list" style="background:url('img/dengue-20161013-172741.jpg')no-repeat; background-size: 100% 100%;">
+                    <div class="news_data">
+                        <p class="title_hosp">Combate ao aedes aegypti</p>
+                        <p class="parag">
+                            período chuvoso está de volta e o trabalho de combate ao Mosquito Aedes Aegypti, transmissor de doenças como a dengue, Zika vírus e Chicungunya, volta a ser intensificado com a Força Tarefa
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="#/tab/news-detail_1_1"
+               collection-item-width="'100%'"
+               collection-item-height="220px">
+
+                <div class="news_list" style="background:url('img/alergias.jpg')no-repeat; background-size: 100% 100%;">
+                    <div class="news_data">
+                        <p class="title_hosp">
+                            Dicas de Saúde - Alergias</p>
+                        <p class="parag">
+                            Os termômetros começam a registrar as quedas de temperatura e logo começam a aparecer os casacos grossos, botas...
+                        </p>
+                    </div>
+                </div>
+            </a>
+            
+             <a href="#/tab/news-detail_1"
+               collection-item-width="'100%'"
+               collection-item-height="220px">
+
+                <div class="news_list" style="background:url('img/anuncio.jpg')no-repeat; background-size: 100% 100%;">
+                    <div class="news_data">
+                        <p class="title_hosp">Espaço para anunciantes</p>
+                        <p class="parag">
+                            Espaço reservado para clínicas, planos de saúde, farmácias, taxi...
+
+                        </p>
+                    </div>
+                </div>
+            </a>
+           
+        </div>  
+    </ion-content>
+</ion-view>

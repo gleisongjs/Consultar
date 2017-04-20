@@ -1,0 +1,52 @@
+<ion-view view-title="Doctors">
+ <ion-nav-bar class="bar-stable">
+        <ion-nav-buttons side="right" >
+            <button class="button button-icon button-clear">
+              <img src="img/ic3.png"/>
+            </button>
+        </ion-nav-buttons>
+
+        <ion-nav-buttons side="left">
+            <a href="#/login" class="button button-icon button-clear left_btn">
+              <img src="img/ic1.png"/>
+            </a>
+            <button class="button button-icon button-clear ser_icon left_btn" ng-click="search_doc()">
+              <img src="img/ic2.png"/>
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    
+        <div ng-class="{'animated slideInRight':search_input}" class="bar bar-subheader">
+            <div class="list ser_inpt" ng-if="search_input">
+                <label class="item item-input">
+                  <input type="text" placeholder="Search">
+                </label>
+            </div>
+        </div>  
+             
+  <ion-content class="doc_page main_bg">
+ 
+  <div class="content">
+    <a href="#/tab/"
+       collection-repeat="item in doctors"
+       collection-item-width="'50%'"
+       collection-item-height="190px"
+       ng-style="{'height':'190px','width':'50%'}"> 
+        
+        <div class="img_doctor">
+           <img src="{{item.img}}"/>
+           <h3>{{item.name}}</h3>
+           <p>{{item.specialty}}</p>
+           <div class="rate">
+                <i class="ion-star"></i>
+                <i class="ion-star"></i>
+                <i class="ion-star"></i>
+                <i class="ion-star in_active"></i>
+                <i class="ion-star in_active"></i>
+           </div>
+        </div>
+    
+    </a>
+   </div> 
+  </ion-content>
+</ion-view>

@@ -1,0 +1,41 @@
+<ion-view>
+    <ion-nav-bar class="bar-stable det_page">
+        <ion-nav-buttons side="right" >
+            <button class="button button-icon button-clear back_btn" ng-click="myGoBack()">
+                <img src="img/arrow.png"/>
+            </button>
+        </ion-nav-buttons>
+
+        <ion-nav-buttons side="left">
+            <a href="#/login" class="button button-icon button-clear left_btn">
+                <img src="img/ic1.png"/>
+            </a>
+            <button class="button button-icon button-clear ser_icon left_btn" ng-click="search_doc()">
+                <img src="img/ic2.png"/>
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <div ng-class="{'animated slideInRight':search_input}" class="bar bar-subheader">
+        <div class="list ser_inpt" ng-if="search_input">
+            <label class="item item-input">
+                <input type="text" placeholder="Search">
+            </label>
+        </div>
+    </div>  
+
+    <ion-content>
+
+        <div class="news_detail">
+            <img src="img/alergias.jpg"/>
+            <div class="padding">
+                <p class="title_hosp">
+                    Alergias</p>
+
+                <p class="news_txt">
+                     Os termômetros começam a registrar as quedas de temperatura e logo começam a aparecer os casacos grossos, botas de cano alto, chocolate quente, mas também, espirros, olhos lacrimejantes e coceira. Este é o sinal das desagradáveis alergias, que costumam incomodar, e muito, a vida da gente nessa época do ano.O inverno traz consigo muitos vírus, bactérias e uma enorme quantidade de ácaros, grandes vilões das alergias respiratórias que surgem com as baixas temperaturas e grandes alterações climáticas, além da presença de um ar poluído e mais seco graças à baixa umidade do ar. Essas transformações ocorridas durante os dias mais frios provocam o ressecamento e irritação das mucosas respiratórias, o que afeta diretamente os sistemas imunológicos, podendo aumentar o aparecimento de muitas alergias.O melhor tratamento para a alergia, não deixa de ser a prevenção. Evitar a aproximação de pós, pólen, agentes químicos que possam causar alergia, manter a higiene do local, são itens necessários evitar alergias.
+                </p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

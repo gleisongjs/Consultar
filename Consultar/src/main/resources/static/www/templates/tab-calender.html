@@ -1,0 +1,50 @@
+<ion-view view-title="News">
+ <ion-nav-bar class="bar-stable">
+        <ion-nav-buttons side="right" >
+            <a href="#/tab/doctor" class="button button-icon button-clear">
+              <img src="img/ic3.png"/>
+            </a>
+        </ion-nav-buttons>
+
+        <ion-nav-buttons side="left">
+             <a href="#/login" class="button button-icon button-clear left_btn">
+              <img src="img/ic1.png"/>
+            </a>
+            <button class="button button-icon button-clear ser_icon left_btn" ng-click="search_doc()">
+              <img src="img/ic2.png"/>
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    
+        <div ng-class="{'animated slideInRight':search_input}" class="bar bar-subheader">
+            <div class="list ser_inpt" ng-if="search_input">
+                <label class="item item-input">
+                  <input type="text" placeholder="Search">
+                </label>
+            </div>
+        </div>  
+             
+  <ion-content class="main_bg">
+  
+  <div class="calender">  
+  <div pickadate class="datepicker" ng-model="date" ng-change="change_date()"></div>
+  <div class="pop_note"  ng-if="open_popup">
+  <div class="triangle"></div>
+  <div class="row">
+    <div class="col">
+        <div class="list">
+            <label class="item item-input">
+              <textarea placeholder="Add your note....." rows="3"></textarea>
+            </label>
+        </div>
+    </div>
+    <div class="col col-20" ng-click="opennote_detail()">
+        <button class="button button-icon button-clear" >
+           <i class="ion-plus"></i>
+        </button>
+    </div>
+  </div>
+  </div>
+  </div>
+  </ion-content>
+</ion-view>
