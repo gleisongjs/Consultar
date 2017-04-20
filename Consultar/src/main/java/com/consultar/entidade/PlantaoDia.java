@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
 )
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 
-public class PlataoDia  implements java.io.Serializable {
+public class PlantaoDia implements java.io.Serializable {
     @Id
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
@@ -49,7 +49,7 @@ public class PlataoDia  implements java.io.Serializable {
     @JoinColumn(name = "profissional_id")
     private Profissional profissional;
 
-    public PlataoDia(String horario, Date data, String descricao, String status, Profissional profissional) {
+    public PlantaoDia(String horario, Date data, String descricao, String status, Profissional profissional) {
         this.horario = horario;
         this.data = data;
         this.descricao = descricao;

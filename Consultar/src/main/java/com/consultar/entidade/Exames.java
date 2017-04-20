@@ -3,7 +3,6 @@ package com.consultar.entidade;
 
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
@@ -17,7 +16,7 @@ import java.util.List;
 @Table(name="exames"
     ,catalog="consultar"
 )
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idexames")
 
 public class Exames  implements java.io.Serializable {
 
@@ -53,7 +52,7 @@ public class Exames  implements java.io.Serializable {
     @JoinTable(name = "exame_unidade_de_saude",
             joinColumns=@JoinColumn(name = "exame_id"),
             inverseJoinColumns=@JoinColumn(name = "unidade_de_saude_id"))
-    @JsonManagedReference(value = "exame_unidade_de_saude")
+    //@JsonManagedReference(value = "unidadeDeSaude")
     private List<UnidadeDeSaude> unidadeDeSaude;
 
     public Exames(String nome, String descricao, String horario, Short valor, Integer status) {

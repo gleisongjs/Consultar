@@ -16,7 +16,7 @@ import java.util.List;
 @Table(name="cidade"
     ,catalog="consultar"
 )
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idcidade")
 
 public class Cidade  implements java.io.Serializable {
 

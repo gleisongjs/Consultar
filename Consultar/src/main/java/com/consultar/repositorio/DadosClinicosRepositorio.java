@@ -1,6 +1,6 @@
 package com.consultar.repositorio;
 
-import com.consultar.entidade.Acesso;
+import com.consultar.entidade.DadosClinico;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface AcessoRepositorio extends JpaRepository<Acesso, Long> {
-    Acesso findByEmail(String email);
+public interface DadosClinicosRepositorio extends JpaRepository<DadosClinico, Long> {
+    //DadosClinico findByEmail(String email);
 }

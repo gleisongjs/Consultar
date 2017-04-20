@@ -1,7 +1,7 @@
 package com.consultar.controlador;
 
-import com.consultar.entidade.UnidadeDeSaude;
-import com.consultar.repositorio.UnidadeDeSaudeRepositorio;
+import com.consultar.entidade.Exames;
+import com.consultar.repositorio.ExamesRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,30 +11,30 @@ import java.util.List;
  * Created by Gleisongjs on 20/03/2017.
  */
 @RestController
-@RequestMapping(value = "/unidadeSaude")
-public class UnidadeDeSaudeControlador {
+@RequestMapping(value = "/exame")
+public class ExameControlador {
 
 
     @Autowired
-    UnidadeDeSaudeRepositorio unidadeDeSaudeRepositorio;
+    ExamesRepositorio exameRepositorio;
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<UnidadeDeSaude> listar(){
+    public List<Exames> listar(){
 
-        return unidadeDeSaudeRepositorio.findAll();
+        return exameRepositorio.findAll();
     }
 
     @RequestMapping(value="/{id}", method = RequestMethod.GET)
-    public UnidadeDeSaude buscarPeloId(@PathVariable long id){
-        return unidadeDeSaudeRepositorio.findOne(id);
+    public Exames buscarPeloId(@PathVariable long id){
+        return exameRepositorio.findOne(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public UnidadeDeSaude criar(@RequestBody UnidadeDeSaude unidadeDeSaude){
+    public Exames criar(@RequestBody Exames unidadeDeSaude){
 
         if (unidadeDeSaude!=null) {
-            unidadeDeSaude=unidadeDeSaudeRepositorio.save(unidadeDeSaude);
+            unidadeDeSaude=exameRepositorio.save(unidadeDeSaude);
 
 
             return unidadeDeSaude;
@@ -44,9 +44,9 @@ public class UnidadeDeSaudeControlador {
     }
 
     @RequestMapping(method = RequestMethod.PUT)
-    public UnidadeDeSaude atualizar(@RequestBody UnidadeDeSaude unidadeDeSaude){
+    public Exames atualizar(@RequestBody Exames unidadeDeSaude){
         if (unidadeDeSaude!=null) {
-            unidadeDeSaudeRepositorio.save(unidadeDeSaude);
+            exameRepositorio.save(unidadeDeSaude);
             return unidadeDeSaude;
         }
         return null;
@@ -55,9 +55,9 @@ public class UnidadeDeSaudeControlador {
     @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
     public void deletar(@PathVariable long id){
 
-        UnidadeDeSaude unidadeDeSaude = unidadeDeSaudeRepositorio.findOne(id);
+        Exames unidadeDeSaude = exameRepositorio.findOne(id);
         if(unidadeDeSaude != null){
-            unidadeDeSaudeRepositorio.delete(unidadeDeSaude);
+            exameRepositorio.delete(unidadeDeSaude);
         }
     }
 

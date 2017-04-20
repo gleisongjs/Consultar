@@ -1,13 +1,10 @@
 package com.consultar.controlador;
 
-import com.consultar.entidade.Acesso;
-import com.consultar.entidade.Permissao;
-import com.consultar.repositorio.AcessoRepositorio;
+import com.consultar.entidade.FeedNoticias;
 import com.consultar.repositorio.FeedNoticiasRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,7 +12,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(value = "/feedNoticia")
-public class FeedNoticias {
+public class FeedNoticiasControlador {
 
 
 
@@ -27,45 +24,44 @@ public class FeedNoticias {
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Acesso> listar(){
+    public List<FeedNoticias> listar(){
 
         return feedNoticiasRepositorio.findAll();
     }
 
     @RequestMapping(value="/{id}", method = RequestMethod.GET)
-    public Acesso buscarPeloId(@PathVariable long id){
+    public FeedNoticias buscarPeloId(@PathVariable long id){
         return feedNoticiasRepositorio.findOne(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public Acesso criar(@RequestBody Acesso pessoa){
-        System.out.println(pessoa.toString());
-        Permissao permissao=new Permissao();
+    public FeedNoticias criar(@RequestBody FeedNoticias feedNoticias){
 
-        permissao.setNome("1");
-        permissao.setId(1);
-        List a=new ArrayList();
-
-             a.add(permissao);
-//        permissaoRepositorio.save(permissao);
+        if (feedNoticias!=null) {
+            feedNoticias=feedNoticiasRepositorio.save(feedNoticias);
 
 
-  //      pessoa.setPermissoes(a);
-        acessoRepositorio.save(pessoa);
-        return pessoa;
+            return feedNoticias;
+        }
+        return null;
+
     }
 
     @RequestMapping(method = RequestMethod.PUT)
-    public Acesso atualizar(@RequestBody Acesso pessoa){
-        acessoRepositorio.save(pessoa);
-        return pessoa;
+    public FeedNoticias atualizar(@RequestBody FeedNoticias feedNoticias){
+        if (feedNoticias!=null) {
+            feedNoticiasRepositorio.save(feedNoticias);
+            return feedNoticias;
+        }
+        return null;
     }
 
     @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
     public void deletar(@PathVariable long id){
-        Acesso pessoa = acessoRepositorio.findOne(id);
-        if(pessoa != null){
-            acessoRepositorio.delete(pessoa);
+
+        FeedNoticias feedNoticias = feedNoticiasRepositorio.findOne(id);
+        if(feedNoticias != null){
+            feedNoticiasRepositorio.delete(feedNoticias);
         }
     }
 

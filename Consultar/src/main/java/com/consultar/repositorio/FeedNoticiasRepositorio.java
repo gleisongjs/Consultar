@@ -2,11 +2,8 @@ package com.consultar.repositorio;
 
 
 import com.consultar.entidade.FeedNoticias;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 /**
  * Created by Gleisongjs on 20/03/2017.
@@ -14,5 +11,5 @@ import java.util.List;
 
 @Repository
 public interface FeedNoticiasRepositorio extends JpaRepository<FeedNoticias, Long> {
-
+    FeedNoticias findOne(long id);
 }

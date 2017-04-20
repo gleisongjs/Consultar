@@ -1,7 +1,7 @@
 package com.consultar.controlador;
 
-import com.consultar.entidade.FeedNoticias;
-import com.consultar.repositorio.FeedNoticiasRepositorio;
+import com.consultar.entidade.UnidadeDeSaude;
+import com.consultar.repositorio.UnidadeDeSaudeRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,47 +11,43 @@ import java.util.List;
  * Created by Gleisongjs on 20/03/2017.
  */
 @RestController
-@RequestMapping(value = "/feedNoticia")
-public class FeedNoticiasControlador {
-
-
-
-
+@RequestMapping(value = "/unidadeSaude")
+public class UnidadeDeSaudeControlador {
 
 
     @Autowired
-    FeedNoticiasRepositorio feedNoticiasRepositorio;
+    UnidadeDeSaudeRepositorio unidadeDeSaudeRepositorio;
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<FeedNoticias> listar(){
+    public List<UnidadeDeSaude> listar(){
 
-        return feedNoticiasRepositorio.findAll();
+        return unidadeDeSaudeRepositorio.findAll();
     }
 
     @RequestMapping(value="/{id}", method = RequestMethod.GET)
-    public FeedNoticias buscarPeloId(@PathVariable long id){
-        return feedNoticiasRepositorio.findOne(id);
+    public UnidadeDeSaude buscarPeloId(@PathVariable long id){
+        return unidadeDeSaudeRepositorio.findOne(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public FeedNoticias criar(@RequestBody FeedNoticias feedNoticias){
+    public UnidadeDeSaude criar(@RequestBody UnidadeDeSaude unidadeDeSaude){
 
-        if (feedNoticias!=null) {
-            feedNoticias=feedNoticiasRepositorio.save(feedNoticias);
+        if (unidadeDeSaude!=null) {
+            unidadeDeSaude=unidadeDeSaudeRepositorio.save(unidadeDeSaude);
 
 
-            return feedNoticias;
+            return unidadeDeSaude;
         }
         return null;
 
     }
 
     @RequestMapping(method = RequestMethod.PUT)
-    public FeedNoticias atualizar(@RequestBody FeedNoticias feedNoticias){
-        if (feedNoticias!=null) {
-            feedNoticiasRepositorio.save(feedNoticias);
-            return feedNoticias;
+    public UnidadeDeSaude atualizar(@RequestBody UnidadeDeSaude unidadeDeSaude){
+        if (unidadeDeSaude!=null) {
+            unidadeDeSaudeRepositorio.save(unidadeDeSaude);
+            return unidadeDeSaude;
         }
         return null;
     }
@@ -59,9 +55,9 @@ public class FeedNoticiasControlador {
     @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
     public void deletar(@PathVariable long id){
 
-        FeedNoticias feedNoticias = feedNoticiasRepositorio.findOne(id);
-        if(feedNoticias != null){
-            feedNoticiasRepositorio.delete(feedNoticias);
+        UnidadeDeSaude unidadeDeSaude = unidadeDeSaudeRepositorio.findOne(id);
+        if(unidadeDeSaude != null){
+            unidadeDeSaudeRepositorio.delete(unidadeDeSaude);
         }
     }
 

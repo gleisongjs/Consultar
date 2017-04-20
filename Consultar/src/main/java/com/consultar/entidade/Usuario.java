@@ -58,8 +58,7 @@ public class Usuario  implements java.io.Serializable {
     @JoinColumn(name = "localizacao_id")
     private Localizacao localizacao;
 
-
-    public Usuario(String nome, String cpf, Integer tipo, Integer status, List<UnidadeDeSaude> unidadeDeSaude, List<FeedNoticias> feedNoticias, Imagem imagem, Localizacao localizacao) {
+    public Usuario() {
         this.setNome(nome);
         this.setCpf(cpf);
         this.setTipo(tipo);

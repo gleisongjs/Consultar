@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 @Table(name="localizacao"
     ,catalog="consultar"
 )
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idlocalizacao")
 
 public class Localizacao  implements java.io.Serializable {
 

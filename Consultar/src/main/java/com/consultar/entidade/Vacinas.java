@@ -3,7 +3,6 @@ package com.consultar.entidade;
 
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
@@ -17,7 +16,7 @@ import java.util.List;
 @Table(name="vacinas"
     ,catalog="consultar"
 )
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idvacinas")
 
 public class Vacinas  implements java.io.Serializable {
 
@@ -53,7 +52,7 @@ public class Vacinas  implements java.io.Serializable {
     @JoinTable(name = "vacina_unidade_de_saude",
             joinColumns=@JoinColumn(name = "exame_id"),
             inverseJoinColumns=@JoinColumn(name = "unidade_de_saude_id"))
-    @JsonManagedReference(value = "vacina_unidade_de_saude")
+    //@JsonManagedReference(value = "vacina_unidade_de_saude")
     private List<UnidadeDeSaude> unidadeDeSaude;
 
     public Vacinas(String nome, String descricao, Short valor, Integer status, List<UnidadeDeSaude> unidadeDeSaude) {

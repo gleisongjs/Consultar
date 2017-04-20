@@ -15,7 +15,8 @@ import javax.validation.constraints.NotNull;
 @Table(name="feed_noticias"
     ,catalog="consultar"
 )
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idfeedNoticias" +
+        "")
 
 public class FeedNoticias  implements java.io.Serializable {
 
@@ -53,15 +54,15 @@ public class FeedNoticias  implements java.io.Serializable {
     @JoinColumn(name="usuario_id")
     private Usuario usuario;
 
-
-    public FeedNoticias(String nome, String descricao, Integer tipo, Integer status, Imagem imagem, Usuario usuario) {
-        this.setNome(nome);
-        this.setDescricao(descricao);
-        this.setTipo(tipo);
-        this.setStatus(status);
-        this.setImagem(imagem);
-        this.setUsuario(usuario);
-    }
+//
+//    public FeedNoticias(String nome, String descricao, Integer tipo, Integer status, Imagem imagem, Usuario usuario) {
+//        this.setNome(nome);
+//        this.setDescricao(descricao);
+//        this.setTipo(tipo);
+//        this.setStatus(status);
+//        this.setImagem(imagem);
+//        this.setUsuario(usuario);
+//    }
 
 
     public Integer getIdfeedNoticias() {

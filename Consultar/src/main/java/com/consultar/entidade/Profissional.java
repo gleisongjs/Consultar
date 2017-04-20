@@ -52,16 +52,16 @@ public class Profissional  implements java.io.Serializable {
      private String descricao;
 
     @OneToMany(mappedBy = "profissional")
-    private List<PlataoDia> plataoDia;
+    private List<PlantaoDia> plantaoDia;
 
-    public Profissional(String nome, String especialidade, String horario, Integer status, Integer crm, String descricao, List<PlataoDia> plataoDia) {
+    public Profissional(String nome, String especialidade, String horario, Integer status, Integer crm, String descricao, List<PlantaoDia> plantaoDia) {
         this.nome = nome;
         this.especialidade = especialidade;
         this.horario = horario;
         this.status = status;
         this.crm = crm;
         this.descricao = descricao;
-        this.plataoDia = plataoDia;
+        this.plantaoDia = plantaoDia;
     }
 
     public Integer getId() {
@@ -121,12 +121,12 @@ public class Profissional  implements java.io.Serializable {
     }
 
 
-    public List<PlataoDia> getPlataoDia() {
-        return plataoDia;
+    public List<PlantaoDia> getPlantaoDia() {
+        return plantaoDia;
     }
 
-    public void setPlataoDia(List<PlataoDia> plataoDia) {
-        this.plataoDia = plataoDia;
+    public void setPlantaoDia(List<PlantaoDia> plantaoDia) {
+        this.plantaoDia = plantaoDia;
     }
 }
 

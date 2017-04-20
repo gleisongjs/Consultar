@@ -27,9 +27,12 @@
         </div>
     </div>  
 
-    <ion-content class="hospital_list" style="background:#333">
+    <ion-content class="hospital_list" style="background:#333" ng-controller="feedNoticiaCtrl">
 
-        <div class="" style="padding-top: 35px;">
+
+
+
+        <div class="" style="padding-top: 35px;" ng-repeat="feed in feeds">
             
             <a href="#/tab/news-detail_1"
                collection-item-width="'100%'"
@@ -37,10 +40,9 @@
 
                 <div class="news_list" style="background:url('img/novembro azul site-20161101-110456.jpg')no-repeat; background-size: 100% 100%;">
                     <div class="news_data">
-                        <p class="title_hosp">Atenção para a saúde do homem</p>
+                        <p class="title_hosp">feed.nome</p>
                         <p class="parag">
-                            No mês de novembro, o cuidado com a saúde do homem é intensificada em Anápolis com a campanha Novembro Azul
-
+                            feed.descricao
                         </p>
                     </div>
                 </div>

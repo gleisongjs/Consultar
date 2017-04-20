@@ -13,7 +13,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.Http403ForbiddenEntryPoint;
-import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -27,8 +26,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         System.out.println("PASSOU AQUI");
-        auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
-       // auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+       // auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
     @Override
@@ -37,11 +36,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/static/**"
                         , "/templates/**"
-                        , "/"
+                        , "/acesso"
+                        , "/**"
                         , "/login"
                         ).permitAll()
 
-                //.anyRequest().authenticated()
+                .anyRequest().authenticated()
                   .and().logout();
 
     }

@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 @Table(name="rua"
     ,catalog="consultar"
 )
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idrua")
 
 public class Rua  implements java.io.Serializable {
 

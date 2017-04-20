@@ -1,15 +1,13 @@
 package com.consultar.controlador;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import com.consultar.repositorio.AcessoRepositorio;
-import com.consultar.repositorio.PermissaoRepositorio;
 import com.consultar.entidade.Acesso;
+import com.consultar.entidade.Permissao;
+import com.consultar.repositorio.AcessoRepositorio;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.consultar.entidade.Permissao;
 
 /**
  * Created by Gleisongjs on 20/03/2017.
@@ -19,10 +17,6 @@ import com.consultar.entidade.Permissao;
 public class AcessoControlador {
 
 
-    @RequestMapping(value="/home ")
-    public String buscarPeloId(){
-       return "teste";
-    }
 
 
 

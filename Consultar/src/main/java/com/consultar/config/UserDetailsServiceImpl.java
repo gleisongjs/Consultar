@@ -1,7 +1,9 @@
 package com.consultar.config;
 
 
+import com.consultar.entidade.Acesso;
 import com.consultar.entidade.Permissao;
+import com.consultar.repositorio.AcessoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,8 +16,6 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-import com.consultar.repositorio.AcessoRepositorio;
-import com.consultar.entidade.Acesso;
 @Service("userDetailsService")
 @Transactional
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -27,7 +27,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Acesso acesso = pessoaRepositorio.findByEmail(email);
         if(acesso!= null) {
-            System.out.println("USUARIO ENCONTRADO");
+            System.out.println("USUARIO "+email+"ENCONTRADO");
             List<GrantedAuthority> authorities = this.buildUserAuthority(acesso.getPermissoes());
             return this.buildUserForAuthentication(acesso, authorities);
         } else {
