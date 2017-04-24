@@ -50,14 +50,14 @@ public class DadosClinico  implements java.io.Serializable {
     @Column(name = "alergiaMedicamento")
      private String alergiaMedicamento;
 
-    public DadosClinico(String tipoSanguineo, String fatorRh, String medicamento, String doenca, String doencaFamiliar, String alergiaMedicamento) {
-        this.setTipoSanguineo(tipoSanguineo);
-        this.setFatorRh(fatorRh);
-        this.setMedicamento(medicamento);
-        this.setDoenca(doenca);
-        this.setDoencaFamiliar(doencaFamiliar);
-        this.setAlergiaMedicamento(alergiaMedicamento);
-    }
+//    public DadosClinico(String tipoSanguineo, String fatorRh, String medicamento, String doenca, String doencaFamiliar, String alergiaMedicamento) {
+//        this.setTipoSanguineo(tipoSanguineo);
+//        this.setFatorRh(fatorRh);
+//        this.setMedicamento(medicamento);
+//        this.setDoenca(doenca);
+//        this.setDoencaFamiliar(doencaFamiliar);
+//        this.setAlergiaMedicamento(alergiaMedicamento);
+//    }
 
 
     public Integer getIddadosClinico() {

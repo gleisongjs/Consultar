@@ -42,12 +42,12 @@ public class Pais  implements java.io.Serializable {
     @OneToMany(mappedBy = "pais")
     private List<Estado> estado;
 
-    public Pais(String nome, Integer status, List<Estado> estado) {
-        this.setNome(nome);
-        this.setStatus(status);
-        this.setEstado(estado);
-
-    }
+//    public Pais(String nome, Integer status, List<Estado> estado) {
+//        this.setNome(nome);
+//        this.setStatus(status);
+//        this.setEstado(estado);
+//
+//    }
 
 
     public Integer getIdpais() {

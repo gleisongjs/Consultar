@@ -53,16 +53,16 @@ public class Profissional  implements java.io.Serializable {
 
     @OneToMany(mappedBy = "profissional")
     private List<PlantaoDia> plantaoDia;
-
-    public Profissional(String nome, String especialidade, String horario, Integer status, Integer crm, String descricao, List<PlantaoDia> plantaoDia) {
-        this.nome = nome;
-        this.especialidade = especialidade;
-        this.horario = horario;
-        this.status = status;
-        this.crm = crm;
-        this.descricao = descricao;
-        this.plantaoDia = plantaoDia;
-    }
+//
+//    public Profissional(String nome, String especialidade, String horario, Integer status, Integer crm, String descricao, List<PlantaoDia> plantaoDia) {
+//        this.nome = nome;
+//        this.especialidade = especialidade;
+//        this.horario = horario;
+//        this.status = status;
+//        this.crm = crm;
+//        this.descricao = descricao;
+//        this.plantaoDia = plantaoDia;
+//    }
 
     public Integer getId() {
         return id;

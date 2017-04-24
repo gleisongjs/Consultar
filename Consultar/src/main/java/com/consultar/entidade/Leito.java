@@ -46,12 +46,12 @@ public class Leito  implements java.io.Serializable {
     @JoinColumn(name = "unidade_de_saude_id")
      private UnidadeDeSaude unidadeDeSaude;
 
-    public Leito(int tipo, String descricao, String status, UnidadeDeSaude unidadeDeSaude) {
-        this.setTipo(tipo);
-        this.setDescricao(descricao);
-        this.setStatus(status);
-        this.setUnidadeDeSaude(unidadeDeSaude);
-    }
+//    public Leito(int tipo, String descricao, String status, UnidadeDeSaude unidadeDeSaude) {
+//        this.setTipo(tipo);
+//        this.setDescricao(descricao);
+//        this.setStatus(status);
+//        this.setUnidadeDeSaude(unidadeDeSaude);
+//    }
 
 
     public Integer getIdleito() {

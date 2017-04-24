@@ -54,16 +54,16 @@ public class UnidadeDeSaude  implements java.io.Serializable {
 
     @ManyToMany
     @JoinTable(name = "unidade_saude_vacina",
-            joinColumns=@JoinColumn(name = "vacina_id"),
-            inverseJoinColumns=@JoinColumn(name = "id"))
+            joinColumns=@JoinColumn(name = "unidade_de_saude_id"),
+            inverseJoinColumns=@JoinColumn(name = "vacina_id"))
    // @JsonManagedReference(value = "unidade_saude_vacina")
 
     private List<Vacinas> vacinas;
 
     @ManyToMany
     @JoinTable(name = "unidade_saude_medicamento",
-            joinColumns=@JoinColumn(name = "medicamento_id"),
-            inverseJoinColumns=@JoinColumn(name = "id"))
+            joinColumns=@JoinColumn(name = "unidade_de_saude_id"),
+            inverseJoinColumns=@JoinColumn(name = "medicamento_id"))
 //    @JsonManagedReference(value = "unidade_saude_medicamento")
 
 
@@ -99,22 +99,22 @@ public class UnidadeDeSaude  implements java.io.Serializable {
     @JoinColumn(name = "usuario_id")
     private  Usuario usuario;
 
-    public UnidadeDeSaude(String nome, String horario, Integer status, String descricao, String url, List<Vacinas> vacinas, List<Medicamento> medicamento, Imagem imagem, Contato contato, Localizacao localizacao, List<Exames> exames, List<Leito> leito, Usuario usuario) {
-
-        this.nome = nome;
-        this.horario = horario;
-        this.status = status;
-        this.descricao = descricao;
-        this.url = url;
-        this.vacinas = vacinas;
-        this.medicamento = medicamento;
-        this.imagem = imagem;
-        this.contato = contato;
-        this.localizacao = localizacao;
-        this.exames = exames;
-        this.leito = leito;
-        this.setUsuario(usuario);
-    }
+//    public UnidadeDeSaude(String nome, String horario, Integer status, String descricao, String url, List<Vacinas> vacinas, List<Medicamento> medicamento, Imagem imagem, Contato contato, Localizacao localizacao, List<Exames> exames, List<Leito> leito, Usuario usuario) {
+//
+//        this.nome = nome;
+//        this.horario = horario;
+//        this.status = status;
+//        this.descricao = descricao;
+//        this.url = url;
+//        this.vacinas = vacinas;
+//        this.medicamento = medicamento;
+//        this.imagem = imagem;
+//        this.contato = contato;
+//        this.localizacao = localizacao;
+//        this.exames = exames;
+//        this.leito = leito;
+//        this.setUsuario(usuario);
+//    }
 
 
 

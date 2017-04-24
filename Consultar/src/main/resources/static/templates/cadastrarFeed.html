@@ -1,0 +1,66 @@
+<ion-view view-title="" ng-controller="CFeedsCtrl" ng-swipe-right=''>
+    <div class="bar bar-reader bar-dark">
+        <h1 class="title"> Cadastrar Notícias</h1>
+    </div>
+    <ion-nav-bar class="bar-stable">
+        <ion-nav-buttons side="right" >
+            <a href="#/tab/doctor" class="button button-icon button-clear">
+                <img src="img/ic3.png"/>
+            </a>
+        </ion-nav-buttons>
+
+        <ion-nav-buttons side="left">
+            <a href="#/login" class="button button-icon button-clear left_btn">
+                <img src="img/ic1.png"/>
+            </a>
+            <button class="button button-icon button-clear ser_icon left_btn" ng-click="search_doc()">
+                <img src="img/ic2.png"/>
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <div ng-class="{'animated slideInRight':search_input}" class="bar bar-subheader">
+        <div class="list ser_inpt" ng-if="search_input">
+            <label class="item item-input">
+                <input type="text" placeholder="Buscar">
+            </label>
+        </div>
+    </div>
+
+    <ion-content class="hospital_list" style="background:#333 ;margin-bottom: 50px;">
+
+
+
+<div style="margin-top: 50px; ">
+        <form class="log_form" name="cad" >
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <input type="text" placeholder="Titulo" ng-model="feed.nome" ng-required="true">
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="Descrição"ng-model="feed.descricao"ng-required="true">
+                </label>
+                <label class="item item-input">
+                    Tipo:
+                    <select name="tipo" class="form-control">
+
+                        <option value="1">Noticia</option>
+                        <option value="2">Dicas De Saúde</option>
+                        <option value="3">Anuncio</option>
+
+                    </select>
+                </label>
+                    <label class="item item-input">
+                    <input type="text" placeholder="Url"ng-model="feed.url"ng-required="true">
+                </label>
+                <input type="hidden" value="1" name="status">
+
+
+
+                <a href="#" class="button button-block" ng-click="salvarFeed(feed)" >Salvar</a>
+                <a href="#/tab/feeds" class="button button-block main_btn">Back</a>
+            </div>
+        </form>
+</div>
+    </ion-content>
+</ion-view>

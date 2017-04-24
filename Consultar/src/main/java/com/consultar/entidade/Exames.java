@@ -55,13 +55,13 @@ public class Exames  implements java.io.Serializable {
     //@JsonManagedReference(value = "unidadeDeSaude")
     private List<UnidadeDeSaude> unidadeDeSaude;
 
-    public Exames(String nome, String descricao, String horario, Short valor, Integer status) {
-       this.setNome(nome);
-       this.setDescricao(descricao);
-       this.setHorario(horario);
-       this.setValor(valor);
-       this.setStatus(status);
-    }
+//    public Exames(String nome, String descricao, String horario, Short valor, Integer status) {
+//       this.setNome(nome);
+//       this.setDescricao(descricao);
+//       this.setHorario(horario);
+//       this.setValor(valor);
+//       this.setStatus(status);
+//    }
 
 
     public Integer getIdexames() {

@@ -43,15 +43,15 @@ public class Medicamento implements java.io.Serializable {
     @Column(name = "status")
     private String status;
 
-    @OneToMany(mappedBy = "medicamento",  fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "medicamento",  fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<UnidadeDeSaude> unidadeDeSaude;
 
-    public Medicamento(String nome, String descricao, String status, List<UnidadeDeSaude> unidadeDeSaude) {
-        this.setNome(nome);
-        this.setDescricao(descricao);
-        this.setStatus(status);
-        this.setUnidadeDeSaude(unidadeDeSaude);
-    }
+//    public Medicamento(String nome, String descricao, String status, List<UnidadeDeSaude> unidadeDeSaude) {
+//        this.setNome(nome);
+//        this.setDescricao(descricao);
+//        this.setStatus(status);
+//        this.setUnidadeDeSaude(unidadeDeSaude);
+//    }
 
 
     public Integer getId() {

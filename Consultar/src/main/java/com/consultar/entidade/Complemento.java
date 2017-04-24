@@ -38,10 +38,10 @@ public class Complemento  implements java.io.Serializable {
     @Column(name = "status")
      private String status;
 
-    public Complemento(String descricao, String status) {
-        this.setDescricao(descricao);
-        this.setStatus(status);
-    }
+//    public Complemento(String descricao, String status) {
+//        this.setDescricao(descricao);
+//        this.setStatus(status);
+//    }
 
 
     public Integer getIdcomplemento() {

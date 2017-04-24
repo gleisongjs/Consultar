@@ -55,13 +55,13 @@ public class Vacinas  implements java.io.Serializable {
     //@JsonManagedReference(value = "vacina_unidade_de_saude")
     private List<UnidadeDeSaude> unidadeDeSaude;
 
-    public Vacinas(String nome, String descricao, Short valor, Integer status, List<UnidadeDeSaude> unidadeDeSaude) {
-        this.setNome(nome);
-        this.setDescricao(descricao);
-        this.setValor(valor);
-        this.setStatus(status);
-        this.setUnidadeDeSaude(unidadeDeSaude);
-    }
+//    public Vacinas(String nome, String descricao, Short valor, Integer status, List<UnidadeDeSaude> unidadeDeSaude) {
+//        this.setNome(nome);
+//        this.setDescricao(descricao);
+//        this.setValor(valor);
+//        this.setStatus(status);
+//        this.setUnidadeDeSaude(unidadeDeSaude);
+//    }
 
 
     public Integer getIdvacinas() {

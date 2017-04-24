@@ -4,6 +4,8 @@ import com.consultar.entidade.Acesso;
 import com.consultar.entidade.Permissao;
 import com.consultar.repositorio.AcessoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -36,9 +38,16 @@ public class AcessoControlador {
         return acessoRepositorio.findOne(id);
     }
 
+    public PasswordEncoder passwordEncoder() {
+        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        return encoder;
+    }
     @RequestMapping(method = RequestMethod.POST)
-    public Acesso criar(@RequestBody Acesso pessoa){
-        System.out.println(pessoa.toString());
+    public Acesso criar(@RequestBody Acesso acesso){
+        System.out.println(acesso.toString());
+        PasswordEncoder p=passwordEncoder();
+
+        acesso.setSenha(p.encode(acesso.getSenha()));
         Permissao permissao=new Permissao();
 
         permissao.setNome("1");
@@ -50,8 +59,8 @@ public class AcessoControlador {
 
 
   //      pessoa.setPermissoes(a);
-        acessoRepositorio.save(pessoa);
-        return pessoa;
+        acessoRepositorio.save(acesso);
+        return acesso;
     }
 
     @RequestMapping(method = RequestMethod.PUT)

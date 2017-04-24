@@ -43,11 +43,11 @@ public class Localizacao  implements java.io.Serializable {
     @JoinColumn(name = "rua_id")
      private Rua rua;
 
-    public Localizacao(String status, Bairro bairro, Rua rua) {
-        this.setStatus(status);
-        this.setBairro(bairro);
-        this.setRua(rua);
-    }
+//    public Localizacao(String status, Bairro bairro, Rua rua) {
+//        this.setStatus(status);
+//        this.setBairro(bairro);
+//        this.setRua(rua);
+//    }
 
 
     public Integer getIdlocalizacao() {

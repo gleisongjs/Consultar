@@ -42,11 +42,11 @@ public class Estado  implements java.io.Serializable {
     @JoinColumn(name = "pais_id")
      private Pais pais;
 
-    public Estado(String nome, Integer status, Pais paisid) {
-        this.nome = nome;
-        this.status = status;
-        this.pais = paisid;
-    }
+//    public Estado(String nome, Integer status, Pais paisid) {
+//        this.nome = nome;
+//        this.status = status;
+//        this.pais = paisid;
+//    }
 
     public Integer getIdestado() {
         return idestado;

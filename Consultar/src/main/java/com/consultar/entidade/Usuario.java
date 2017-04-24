@@ -49,7 +49,7 @@ public class Usuario  implements java.io.Serializable {
 
     @OneToMany(mappedBy = "usuario" , fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<UnidadeDeSaude> unidadeDeSaude;
-    @OneToMany(mappedBy = "usuario" , fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "usuario" , fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<FeedNoticias> feedNoticias;
     @ManyToOne
     @JoinColumn(name = "imagem_id")
@@ -58,16 +58,16 @@ public class Usuario  implements java.io.Serializable {
     @JoinColumn(name = "localizacao_id")
     private Localizacao localizacao;
 
-    public Usuario() {
-        this.setNome(nome);
-        this.setCpf(cpf);
-        this.setTipo(tipo);
-        this.setStatus(status);
-        this.setUnidadeDeSaude(unidadeDeSaude);
-        this.setFeedNoticias(feedNoticias);
-        this.setImagem(imagem);
-        this.setLocalizacao(localizacao);
-    }
+//    public Usuario() {
+//        this.setNome(nome);
+//        this.setCpf(cpf);
+//        this.setTipo(tipo);
+//        this.setStatus(status);
+//        this.setUnidadeDeSaude(unidadeDeSaude);
+//        this.setFeedNoticias(feedNoticias);
+//        this.setImagem(imagem);
+//        this.setLocalizacao(localizacao);
+//    }
 
 
     public Integer getId() {

@@ -48,12 +48,12 @@ public class Bairro  implements java.io.Serializable {
     @OneToMany(mappedBy = "bairro", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Localizacao> localizacao;
 
-    public Bairro(String nome, Integer status, Cidade cidade, List<Localizacao> localizacao) {
-        this.setNome(nome);
-        this.setStatus(status);
-        this.setCidade(cidade);
-        this.setLocalizacao(localizacao);
-    }
+//    public Bairro(String nome, Integer status, Cidade cidade, List<Localizacao> localizacao) {
+//        this.setNome(nome);
+//        this.setStatus(status);
+//        this.setCidade(cidade);
+//        this.setLocalizacao(localizacao);
+//    }
 
 
     public Integer getIdbairro() {

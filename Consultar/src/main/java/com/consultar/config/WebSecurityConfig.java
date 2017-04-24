@@ -35,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic().authenticationEntryPoint(new Http403ForbiddenEntryPoint()).and().csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/static/**"
-                        , "/templates/**"
+                        , "/templates2/**"
                         , "/acesso"
                         , "/**"
                         , "/login"

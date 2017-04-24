@@ -45,12 +45,12 @@ public class Setor  implements java.io.Serializable {
     @OneToMany(mappedBy = "setor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Contato> contato;
 
-    public Setor(String nome, String descricao, String status, List<Contato> contato) {
-        this.setNome(nome);
-        this.setDescricao(descricao);
-        this.setStatus(status);
-        this.setContato(contato);
-    }
+//    public Setor(String nome, String descricao, String status, List<Contato> contato) {
+//        this.setNome(nome);
+//        this.setDescricao(descricao);
+//        this.setStatus(status);
+//        this.setContato(contato);
+//    }
 
 
     public Integer getIdsetor() {

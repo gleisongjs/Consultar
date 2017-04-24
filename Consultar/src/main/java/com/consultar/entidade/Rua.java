@@ -38,10 +38,10 @@ public class Rua  implements java.io.Serializable {
     @Column(name = "status")
      private Integer status;
 
-    public Rua(String nome, Integer status) {
-        this.setNome(nome);
-        this.setStatus(status);
-    }
+//    public Rua(String nome, Integer status) {
+//        this.setNome(nome);
+//        this.setStatus(status);
+//    }
 
 
     public Integer getIdrua() {

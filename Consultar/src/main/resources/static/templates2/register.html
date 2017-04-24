@@ -1,0 +1,28 @@
+<ion-view hide-nav-bar="true" ng-controller="CadastrarCtrl">
+  <ion-content class="login_page register_page" scroll="false">
+      <div class="logo animated infinite flash">
+        <img src="img/logo.png"/>
+      </div>
+      <form class="log_form">
+        <div class="list list-inset">
+        <label class="item item-input">
+           <input type="text" placeholder="username" ng-model="usuario.nome">
+        </label>
+        <label class="item item-input">
+           <input type="email" placeholder="example@mail.com"ng-model="usuario.email">
+        </label>
+        <label class="item item-input">
+           <input type="password" placeholder="************"ng-model="usuario.senha">
+        </label>
+        <label class="item item-input">
+           <input type="tel" placeholder="mobile"ng-model="usuario.telefone">
+        </label>
+
+              {{mensagem}}
+
+         <a href="#/tab/doctor" class="button button-block" ng-click="cadastrar(usuario)">Sign Up</a>
+         <a href="#/login" class="button button-block main_btn">Back</a>
+        </div>
+    </form>
+  </ion-content>
+</ion-view>

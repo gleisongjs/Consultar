@@ -46,13 +46,13 @@ public class Imagem  implements java.io.Serializable {
 
     public Imagem() {
     }
-
-    public Imagem(String url, String link, String nome, Integer status) {
-       this.setUrl(url);
-       this.setLink(link);
-       this.setNome(nome);
-       this.setStatus(status);
-    }
+//
+//    public Imagem(String url, String link, String nome, Integer status) {
+//       this.setUrl(url);
+//       this.setLink(link);
+//       this.setNome(nome);
+//       this.setStatus(status);
+//    }
 
 
     public Integer getIdimagem() {

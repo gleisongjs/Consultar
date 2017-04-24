@@ -47,12 +47,12 @@ public class Contato  implements java.io.Serializable {
 
      private Setor setor;
 
-    public Contato(Integer dd, Integer telefone, Integer status, Setor setor) {
-        this.setDd(dd);
-        this.setTelefone(telefone);
-        this.setStatus(status);
-        this.setSetor(setor);
-    }
+//    public Contato(Integer dd, Integer telefone, Integer status, Setor setor) {
+//        this.setDd(dd);
+//        this.setTelefone(telefone);
+//        this.setStatus(status);
+//        this.setSetor(setor);
+//    }
 
 
     public Integer getIdcontato() {

@@ -1,0 +1,112 @@
+<ion-view view-title="" ng-controller="feedNoticiaCtrl">
+
+    <div class="bar bar-reader bar-dark">
+        <h1 class="title">  Notícias</h1>
+    </div>
+    <ion-nav-bar class="bar-stable">
+        <ion-nav-buttons side="right" >
+            <a href="#/tab/doctor" class="button button-icon button-clear">
+                <img src="img/ic3.png"/>
+            </a>
+        </ion-nav-buttons>
+
+        <ion-nav-buttons side="left">
+            <a href="#/login" class="button button-icon button-clear left_btn">
+                <img src="img/ic1.png"/>
+            </a>
+            <button class="button button-icon button-clear ser_icon left_btn button-balanced button-fab " ng-click="search_doc()" style="top: 10%;">
+                <img src="img/ic2.png"/>
+            </button>
+
+
+
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+
+
+
+
+    <div ng-class="{'animated slideInRight':search_input}" class="bar bar-subheader">
+        <div class="list ser_inpt" ng-if="search_input">
+            <label class="item item-input">
+                <input type="text" placeholder="Buscar">
+            </label>
+        </div>
+    </div>
+
+
+
+
+
+    <ion-content class="hospital_list" style="background:#333 ;height:  inherit;" ng-controller="feedNoticiaCtrl" >
+
+        <button id="fab2" class="button button-positive button-fab md-bottom-right">
+            <i class="icon ion-social-twitter"></i>
+        </button>
+
+
+        <div class="" style="padding-top: 35px;" >
+
+
+            <div ng-repeat=" feed in feeds">
+             <a href="#/tab/news-detail_1 "
+               collection-item-width="'100%'"
+               collection-item-height="220px">
+
+                <div class="news_list" style="background:url('img/anuncio.jpg'); background-size:100%;">
+                    <div class="news_data">
+                        <p class="title_hosp">{{feed.nome}}</p>
+                        <p class="parag">
+                            {{feed.descricao}}
+
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            </div>
+
+            <div class="bar bar-header bar-calm-900" style="position: static;">
+                <div class="buttons buttons-left header-item">
+                    <span class="left-buttons">
+                        <button class="button button-icon button-clear ion-navicon"></button>
+                    </span>
+                </div>
+                <div class="h1 title title-left light">Header Icons + Fab</div>
+                <div class="buttons buttons-right header-item">
+                    <span class="right-buttons">
+                        <button class="button button-balanced button-fab">
+                            <i class="icon ion-star"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+
+
+
+            <!--<div  style="-->
+
+      <!--/*z-index: 9999;*/-->
+      <!--/*position:static;*/-->
+      <!--&lt;!&ndash;left: 15px;&ndash;&gt;-->
+   <!--// bottom: 70px;-->
+    <!--top: 200px;-->
+    <!--border-radius:10px;-->
+    <!--width: 40px;-->
+    <!--">-->
+                <!--<button class="button button-icon button-clear left_btn">-->
+                    <!--<img src="img/ic3.png"/>-->
+                <!--</button>-->
+            <!--</div>-->
+
+
+
+
+        </div>
+
+
+    </ion-content>
+
+</ion-view>

@@ -46,12 +46,12 @@ public class Cidade  implements java.io.Serializable {
     @JoinColumn(name="estado_id")
     private Estado estado;
 
-    public Cidade(String nome, Integer status, List<Bairro> bairro, Estado estado) {
-        this.setNome(nome);
-        this.setStatus(status);
-        this.setBairro(bairro);
-        this.setEstado(estado);
-    }
+//    public Cidade(String nome, Integer status, List<Bairro> bairro, Estado estado) {
+//        this.setNome(nome);
+//        this.setStatus(status);
+//        this.setBairro(bairro);
+//        this.setEstado(estado);
+//    }
 
 
     public Integer getIdcidade() {
