@@ -1,6 +1,6 @@
-<ion-view view-title="Cadastrar Notícias"  >
+<ion-view view-title="" ng-controller="unidadeSaudeCadastrarCtrl" ng-swipe-right=alert("teste")>
     <div class="bar bar-reader bar-dark">
-        <h1 class="title"> </h1>
+        <h1 class="title"> Alterar Unidade De Saude</h1>
     </div>
     <ion-nav-bar class="bar-stable">
         <ion-nav-buttons side="right" >
@@ -27,38 +27,29 @@
         </div>
     </div>
 
-    <ion-content class="hospital_list" style="background:#333 ;margin-bottom: 50px;" ng-controller="FeedsCadastrarCtrl">
+    <ion-content class="hospital_list" style="background:#333 ;margin-bottom: 50px;">
 
 
 
 <div style="margin-top: 50px; ">
-        <form class="log_form" name="cad" >
-            <div class="list list-inset">
+        <form class="log_form" name="cadun" >
+            <div class="list ">
                 <label class="item item-input">
-                    <input type="text" placeholder="Titulo" ng-model=="feed.nome" ng-required="true">
-                </label>
-                <label class="item item-input">
-                    <input type="text" placeholder="Descrição"ng-model="feed.descricao"ng-required="true">
+                    <input type="text" placeholder="Nome" value="{{un.nome}}"  ng-required="true">
                 </label>
                 <label class="item item-input">
-                    Tipo:
-                    <select name="tipo" class="form-control"ng-model="feed.tipo">
-
-                        <option value="1">Noticia</option>
-                        <option value="2">Dicas De Saúde</option>
-                        <option value="3">Anuncio</option>
-
-                    </select>
+                    <input type="text" placeholder="Descrição"ng-model="un.descricao"ng-required="true">
                 </label>
-                    <label class="item item-input">
-                    <input type="text" placeholder="Url"ng-model="feed.url"ng-required="true">
+                <label class="item item-input">
+                    <input type="text" placeholder="horario"ng-model="un.horario"ng-required="true">
                 </label>
-                <input type="hidden" value="1" name="status"ng-model="feed.status">
 
+                <label class="item item-input">
+                    <input type="text"   placeholder="Link" name="url" ng-model="un.url"ng-required="true"/>
+                </label>
 
-
-                <button href="#" class="button button-block" ng-click="salvarFeed(feed)"  >Salvar</button>
-                <a href="#/tab/feeds" class="button button-block main_btn">Back</a>
+                <a href="" class="button button-block" ng-click="salvarUn(un)" >Salvar</a>
+                <a href="#/tab/unidadeDeSaude" class="button button-block main_btn">Back</a>
             </div>
         </form>
 </div>

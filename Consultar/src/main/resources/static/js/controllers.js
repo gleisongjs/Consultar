@@ -1,42 +1,46 @@
 
-var controler =angular.module('starter.controllers', [])
+var controller =angular.module('starter.controllers', [])
 
 //.controller('DashCtrl', function($scope) {})
 
-    .controller('CadastrarCtrl', function($scope,$http,Mensagem,$location,Com) {
+    .controller('CadastrarCtrl', function($scope,$http,Mensagem,$location,Com,$window) {
 
 
         $scope.cadastrar=function (usuario) {
 
 
 
-           res= Com.post('/acesso',usuario,function (dados) {
+            Com.post('/acesso',usuario,function (dados) {
 
-               if (res=='ok') {
+               if (dados=='ok') {
                    Mensagem.exibir('Cadastro',"Cadastrado Com Sucesso");
-                    $location.path('#/tab/feeds');
+                   $window.location.href = '#/login';
                }else {
-                   Mensagem.exibir('Cadastro',res);
+                   Mensagem.exibir('Cadastro',"erro"+dados);
                }
            });
 
 
         }
         })
-.controller('loginCtrl', function($scope,Com,$location,Mensagem) {
+.controller('loginCtrl', function($scope,Com,$location,Mensagem,$window) {
+console.log("Login");
 
-  $scope.login =function (usurio) {
-         res= Com.autenticar('/login',this.usuario,function (dados) {
+    $scope.logar =function (usuario) {
+
+      console.log("Logando"+usuario);
+
+          Com.autenticar('/login',this.usuario,function (dados) {
                 console.log('Login:'+dados);
                 if (dados==='ok'){
                     console.log('redirecionando:');
 
-                    $location.path('#/tab/feeds');
+                    $window.location.href = '#/tab/feeds';
 
                 }else{
                     console.log('Login:'+'Usuario ou senha Invalidos');
 
-                    Mensagem.exibir('Login','Usuario ou senha Invalidos');
+                    Mensagem.exibir('Login',' Usuario ou senha Invalidos ');
                 }
          });
 
@@ -45,98 +49,102 @@ var controler =angular.module('starter.controllers', [])
   }
   }
   )
-    .controller('unidadeDeSaudeCtrl', function($scope, $http,Com) {
-        $scope.unidadeSaude={};
+    .controller('unidadeDeSaudeCtrl', function($scope, $http,Com,$window) {
+        var uri="/unidadeSaude";
+        $scope.un={};
 
-        var setUN=function (un) {
-            unidadeSaude=un;
-        }
+        $scope.setUN=function (u) {
+            un=$scope.unidadeSaudes[u];
+            $window.location.href ="#/tab/alterarunidadeDeSaude";
+          };
 
-            var atualizarUN=function ($scope,$http) {
+        $scope.atualizarUN=function () {
 
-                    Com.get('/unidadeSaude',function (dados) {
+                    Com.get(uri,function (dados) {
                         $scope.unidadeSaudes=dados;
                 });
 
-        }
+        };
 
-        salvarUn=function (un) {
 
-            Com.post("/unidadeSaude",un,function (dados) {
+        $scope.deleteUn=function (un) {
+            console.log(un);
+            Com.remove(uri,$scope.unidadeSaudes[un].idunidadeDeSaude,function (dados) {
+                $scope.atualizarUN();
+
+            })};
+
+
+
+        $scope.atualizarUN();
+
+
+    })
+    .controller('unidadeSaudeCadastrarCtrl', function($scope,Com,$window) {
+        $scope.salvarUn=function (un) {
+            un.status=1;
+            Com.post('/unidadeSaude',un,function (dados) {
                 unidadeSaude=dados;
-                atualizarFeed()
-            })}
-        deleteUn=function (un) {
-            Com.delete("/unidadeSaude",un,function (dados) {
-                atualizarFeed()
-            })}
+                $scope.atualizarUN();
 
-
-
-        atualizarUN($scope,$http);
-
+                $window.location.href ='#/tab/unidadeDeSaude';
+            })};
 
     })
-    .controller('CFeedsCtrl', function($scope, $http,Com) {
-        $scope.feed ={}
-        var setFeed=function (f) {
-            feed=f;
-        }
+    .controller('FeedsCadastrarCtrl', function($scope,Com,$window,$rootScope) {
+        $rootScope.salvarFeed=function (feed) {
+            feed.status=1;
+            Com.post('/feedNoticia',feed,function (dados) {
+                // feed=dados;
+                $window.location.href ='#/tab/feeds';
+                $rootScope.atualizarFeed();
 
-
-        var salvarFeed=function (f) {
-            console.log("salvar feed");
-            console.log(f);
-            f.status=1;
-            Com.post("/feedNoticia",f,function (dados) {
-                feed=dados;
-                atualizarFeed()
-            })}
-        var deleteFeed=function (feed) {
-            Com.delete("/feedNoticia",feed,function (dados) {
-                atualizarFeed()
-            })}
-
-
+            })};
 
     })
-    .controller('FeedsCtrl', function($scope, $http,Com) {
+        .controller('FeedsCtrl', function($scope,$rootScope,Com,$window) {
+var uri="/feedNoticia";
+            $scope.setFeed=function (u) {
+                $rootScope.feed=$rootScope.feeds[u];
+                console.log('id:'+u);
+                console.log($rootScope.feed);
 
-        var atualizarFeed=function () {
-           Com.get("/feedNoticia",function (data) {
-               $scope.feeds=data;
+                 $window.location.href ="#/tab/alterarfeeds";
+
+            };
+
+            $rootScope.atualizarFeed=function () {
+           Com.get(uri,function (data) {
+               $rootScope.feeds=data;
+
            })
-           }
+           };
 
-        atualizarFeed($scope,$http);
+            $rootScope.atualizarFeed($scope);
+        $scope.deleteFeed=function (index) {
+            console.log(index);
+            Com.remove(uri,$rootScope.feeds[index].idfeedNoticias,function (dados) {
+                $rootScope.atualizarFeed();
+            })};
 
 
 
 
-       })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
-});
-controler.controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover, $timeout,$location,Mensagem) {
+    })
+    .controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover, $timeout,$location,Mensagem,$window) {
     var fab = document.getElementById('fab');
     fab.addEventListener('click', function () {
         //location.href = 'https://twitter.com/satish_vr2011';
         Path=$location.path();
        if('/tab/feeds'==Path){
-           $location.path('#/tab/cadastrarfeeds');
+           $window.location.href ='#/tab/cadastrarfeeds';
          }
         if('/tab/unidadeDeSaude'==Path){
-            $location.path('#/tab/cadastrarUnidadeSaude');
+            $window.location.href ='#/tab/cadastrarUnidadeSaude';
         }
         if('/tab/localizacao'==Path){
-
+            $window.location.href ='';
         }
 
 

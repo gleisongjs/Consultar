@@ -95,10 +95,10 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
 
     });
 
-    app.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider,$httpProvider) {
+    app.config(function($stateProvider, $urlRouterProvider) {
 
         // $httpProvider.interceptors.push("timestampInterceptor");
-        $httpProvider.interceptors.push("errorInterceptor");
+       // $httpProvider.interceptors.push("errorInterceptor");
         // $httpProvider.interceptors.push("loadingInterceptor");
 
         // $ionicConfigProvider.tabs.position('bottom');
@@ -114,8 +114,8 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
                 url: '/tab',
                 abstract: true,
                 templateUrl: 'templates/menu.html'
-,
-                 controller: 'AppCtrl'
+                 ,
+                  controller: 'AppCtrl'
             })
 
 
@@ -132,13 +132,21 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
 
                     }
                 }
+            }) .state('tab.alterarfeeds', {
+                url: '/alterarfeeds',
+                views: {
+                    'tab-feeds': {
+                        templateUrl: 'templates/alterarFeed.html',
+
+                    }
+                }
             })
             .state('tab.cadastrarfeeds', {
                 url: '/cadastrarfeeds',
                 views: {
                     'tab-feeds': {
-                        templateUrl: 'templates/cadastrarFeed.html',
 
+                        templateUrl: 'templates/cadastrarFeed.html'
                     }
                 }
             }) .state('tab.cadastrarUnidadeSaude', {
@@ -156,6 +164,15 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
                 views: {
                     'tab-unidadeDeSaude': {
                         templateUrl: 'templates/unidadesDeSaude.html',
+
+                    }
+                }
+            })
+            .state('tab.alterarunidadeDeSaude', {
+                url: '/alterarunidadeDeSaude',
+                views: {
+                    'tab-unidadeDeSaude': {
+                        templateUrl: 'templates/alterarUnidadeSaude.html',
 
                     }
                 }
@@ -307,31 +324,31 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
         $urlRouterProvider.otherwise('/login');
 
     });
-angular.module("starter").factory("errorInterceptor", function ($q, $location) {
-    return {
-        responseError: function (rejection) {
-            console.log("errorInterceptor:"+rejection.status);
-
-            if (rejection.status === 404) {
-                console.log("erro 404")
-                $location.path("/error");
-
-            }
-            if (rejection.status === 500) {
-                console.log("erro 500")
-                $location.path("/login");
-
-            }
-            if (rejection.status === 301) {
-                console.log("erro 301")
-                $location.path("/login");
-
-            }
-            if (rejection.status === 400) {
-                console.log("erro 400")
-                $location.path("/error");
-            }
-            return $q.reject(rejection);
-        }
-    };
-});
+// angular.module("starter").factory("errorInterceptor", function ($q, $location) {
+//     return {
+//         responseError: function (rejection) {
+// //            console.log("errorInterceptor:"+rejection.status);
+//
+//             if (rejection.status === 404) {
+//   //              console.log("erro 404")
+//     //            $location.path("/error");
+//
+//             }
+//             if (rejection.status === 500) {
+//       //          console.log("erro 500")
+// //                $location.path("/login");
+//
+//             }
+//             if (rejection.status === 301) {
+//   //              console.log("erro 301")
+//     //            $location.path("/login");
+//
+//             }
+//             if (rejection.status === 400) {
+//       //          console.log("erro 400")
+//         //        $location.path("/error");
+//             }
+//             return $q.reject(rejection);
+//         }
+//     };
+// });

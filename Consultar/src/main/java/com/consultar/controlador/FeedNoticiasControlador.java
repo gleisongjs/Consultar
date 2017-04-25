@@ -57,12 +57,14 @@ public class FeedNoticiasControlador {
     }
 
     @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
-    public void deletar(@PathVariable long id){
+    public FeedNoticias deletar(@PathVariable long id){
 
+System.out.println("id:"+id);
         FeedNoticias feedNoticias = feedNoticiasRepositorio.findOne(id);
         if(feedNoticias != null){
             feedNoticiasRepositorio.delete(feedNoticias);
         }
+        return feedNoticias;
     }
 
 

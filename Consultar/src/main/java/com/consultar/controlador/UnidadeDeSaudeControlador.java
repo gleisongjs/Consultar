@@ -52,10 +52,11 @@ public class UnidadeDeSaudeControlador {
         return null;
     }
 
+
     @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
     public void deletar(@PathVariable long id){
 
-        UnidadeDeSaude unidadeDeSaude = unidadeDeSaudeRepositorio.findOne(id);
+        UnidadeDeSaude unidadeDeSaude = unidadeDeSaudeRepositorio.findOne((long)id);
         if(unidadeDeSaude != null){
             unidadeDeSaudeRepositorio.delete(unidadeDeSaude);
         }

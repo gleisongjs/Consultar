@@ -29,10 +29,12 @@ angular.module('starter.services', [])
         });
 
     },
-    remove: function(objeto,uri,callback) {
-             console.log("Get:"+url+objeto);
+    remove: function(uri,objeto,callback) {
 
-        $http.delete(url+uri,objeto). success( function(data) {
+
+        console.log("Get:"+url+" id:"+objeto);
+        var rm={"id":objeto};
+        $http.delete(url+uri+'/ '+objeto). success( function(data) {
                 console.log('sucesso data:'+data+";" );
             callback(data);
 

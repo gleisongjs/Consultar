@@ -31,7 +31,7 @@ public class FeedNoticias  implements java.io.Serializable {
 
     @Column(name = "id")
 
-     private Integer idfeedNoticias;
+     private Long idfeedNoticias;
     @NotNull
     @Column(name = "nome")
      private String nome;
@@ -65,11 +65,24 @@ public class FeedNoticias  implements java.io.Serializable {
 //    }
 
 
-    public Integer getIdfeedNoticias() {
+    @Override
+    public String toString() {
+        return "FeedNoticias{" +
+                "idfeedNoticias=" + idfeedNoticias +
+                ", nome='" + nome + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", tipo=" + tipo +
+                ", status=" + status +
+                ", imagem=" + imagem +
+                ", usuario=" + usuario +
+                '}';
+    }
+
+    public Long getIdfeedNoticias() {
         return idfeedNoticias;
     }
 
-    public void setIdfeedNoticias(Integer idfeedNoticias) {
+    public void setIdfeedNoticias(Long idfeedNoticias) {
         this.idfeedNoticias = idfeedNoticias;
     }
 

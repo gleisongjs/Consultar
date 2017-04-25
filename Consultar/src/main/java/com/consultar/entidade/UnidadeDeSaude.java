@@ -32,7 +32,7 @@ public class UnidadeDeSaude  implements java.io.Serializable {
     @Column(name ="id")
 
 
-     private Integer idunidadeDeSaude;
+     private Long idunidadeDeSaude;
     @NotNull
     @Column(name = "nome")
      private String nome;
@@ -118,11 +118,11 @@ public class UnidadeDeSaude  implements java.io.Serializable {
 
 
 
-    public Integer getIdunidadeDeSaude() {
+    public Long  getIdunidadeDeSaude() {
         return idunidadeDeSaude;
     }
 
-    public void setIdunidadeDeSaude(Integer idunidadeDeSaude) {
+    public void setIdunidadeDeSaude(Long idunidadeDeSaude) {
         this.idunidadeDeSaude = idunidadeDeSaude;
     }
 

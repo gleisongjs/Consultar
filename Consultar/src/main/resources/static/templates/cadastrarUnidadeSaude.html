@@ -1,4 +1,4 @@
-<ion-view view-title="" ng-controller="unidadeDeSaudeCtrl" ng-swipe-right=alert("teste")>
+<ion-view view-title="" ng-controller="unidadeSaudeCadastrarCtrl" ng-swipe-right=alert("teste")>
     <div class="bar bar-reader bar-dark">
         <h1 class="title"> Cadastrar Unidade De Saude</h1>
     </div>
@@ -32,26 +32,23 @@
 
 
 <div style="margin-top: 50px; ">
-        <form class="log_form" name="cad" >
-            <div class="list list-inset">
+        <form class="log_form" name="cadun" >
+            <div class="list ">
                 <label class="item item-input">
-                    <input type="text" placeholder="Nome" ng-model="unidadeSaude.nome" ng-required="true">
+                    <input type="text" placeholder="Nome" ng-model="un.nome" ng-required="true">
                 </label>
                 <label class="item item-input">
-                    <input type="text" placeholder="Descrição"ng-model="unidadeSaude.descricao"ng-required="true">
+                    <input type="text" placeholder="Descrição"ng-model="un.descricao"ng-required="true">
                 </label>
                 <label class="item item-input">
-                    <input type="date" placeholder="horario"ng-model="unidadeSaude.horario"ng-required="true">
-                </label>
-                <label class="item item-input">
-                    <input type="hidden"  value="1" name="status"/>
-                </label>
-                <label class="item item-input">
-                    <input type="file"   name="imagem" />
+                    <input type="text" placeholder="horario"ng-model="un.horario"ng-required="true">
                 </label>
 
+                <label class="item item-input">
+                    <input type="text"   placeholder="Link" name="url" ng-model="un.url"ng-required="true"/>
+                </label>
 
-                <a href="" class="button button-block" ng-click="salvarUnidadeSaude(unidadeSaude)" ng-disabled="cad.$invalid">Salvar</a>
+                <a href="" class="button button-block" ng-click="salvarUn(un)" >Salvar</a>
                 <a href="#/tab/unidadeDeSaude" class="button button-block main_btn">Back</a>
             </div>
         </form>

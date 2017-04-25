@@ -1,4 +1,4 @@
-<ion-view view-title="Cadastrar Notícias"  >
+<ion-view view-title="Alterar Notícias"  >
     <div class="bar bar-reader bar-dark">
         <h1 class="title"> </h1>
     </div>
@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <ion-content class="hospital_list" style="background:#333 ;margin-bottom: 50px;" ng-controller="FeedsCadastrarCtrl">
+    <ion-content class="hospital_list" style="background:#333 ;margin-bottom: 50px;" ng-controller="FeedsCtrl">
 
 
 
@@ -35,14 +35,14 @@
         <form class="log_form" name="cad" >
             <div class="list list-inset">
                 <label class="item item-input">
-                    <input type="text" placeholder="Titulo" ng-model=="feed.nome" ng-required="true">
+                    <input type="text" placeholder="Titulo" ng-model="feed.nome"  ng-required="true">
                 </label>
                 <label class="item item-input">
-                    <input type="text" placeholder="Descrição"ng-model="feed.descricao"ng-required="true">
+                    <input type="text" placeholder="Descrição" ng-model="feed.descricao" ng-required="true">
                 </label>
                 <label class="item item-input">
                     Tipo:
-                    <select name="tipo" class="form-control"ng-model="feed.tipo">
+                    <select name="tipo" class="form-control" ng-model="feed.tipo">
 
                         <option value="1">Noticia</option>
                         <option value="2">Dicas De Saúde</option>
@@ -51,9 +51,9 @@
                     </select>
                 </label>
                     <label class="item item-input">
-                    <input type="text" placeholder="Url"ng-model="feed.url"ng-required="true">
+                    <input type="text" placeholder="Url" ng-model="feed.url" ng-required="true" >
                 </label>
-                <input type="hidden" value="1" name="status"ng-model="feed.status">
+                <input type="hidden" value="1" name="status" ng-model="feed.status">
 
 
 
