@@ -48,10 +48,8 @@ public class Exames  implements java.io.Serializable {
     @Column(name = "status")
      private Integer status;
 
-    @ManyToMany
-    @JoinTable(name = "exame_unidade_de_saude",
-            joinColumns=@JoinColumn(name = "exame_id"),
-            inverseJoinColumns=@JoinColumn(name = "unidade_de_saude_id"))
+
+    @ManyToMany(mappedBy = "exames", fetch = FetchType.LAZY)
     //@JsonManagedReference(value = "unidadeDeSaude")
     private List<UnidadeDeSaude> unidadeDeSaude;
 

@@ -8,7 +8,10 @@
 var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','pickadate']);
 
     app.run(function($ionicPlatform,$rootScope,$ionicHistory,$ionicModal,$ionicPopup) {
-        $rootScope.date='2016-2-11';
+        // $rootScope.date='2016-2-11';
+         $rootScope.feed={"nome":"teste"};
+         $rootScope.unidade={"nome":"teste","id":1};
+         $rootScope.profissional={"nome":"prof","id":1};
 
 
         $rootScope.change_date = function() {
@@ -153,7 +156,7 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
                 url: '/cadastrarUnidadeSaude',
                 views: {
                     'tab-unidadeDeSaude': {
-                        templateUrl: 'templates/cadastrarUnidadeSaude.html',
+                        templateUrl: 'templates/cadastrarUnidadeSaude.html'
 
                     }
                 }
@@ -163,16 +166,32 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
                 url: '/unidadeDeSaude',
                 views: {
                     'tab-unidadeDeSaude': {
-                        templateUrl: 'templates/unidadesDeSaude.html',
+                        templateUrl: 'templates/unidadesDeSaude.html'
+
+                    }
+                }
+            })      .state('tab.un', {
+                url: '/un',
+                views: {
+                    'tab-unidadeDeSaude': {
+                        templateUrl: 'templates/unview.html'
 
                     }
                 }
             })
+        //     .state('tab.un_view', {
+        //     url: '/un_view',
+        //     views: {
+        //         'tab-unidadesDeSaude': {
+        //             templateUrl: 'templates/unview.html'
+        //         }
+        //     }
+        // })
             .state('tab.alterarunidadeDeSaude', {
                 url: '/alterarunidadeDeSaude',
                 views: {
                     'tab-unidadeDeSaude': {
-                        templateUrl: 'templates/alterarUnidadeSaude.html',
+                        templateUrl: 'templates/alterarUnidadeSaude.html'
 
                     }
                 }
@@ -192,14 +211,7 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
 
 
 
-            .state('tab.hospital-detail', {
-                url: '/hospital-detail',
-                views: {
-                    'tab-unidadesDeSaude': {
-                        templateUrl: 'templates/huana.html'
-                    }
-                }
-            })
+
 
 
 

@@ -1,10 +1,13 @@
 package com.consultar.controlador;
 
+import com.consultar.entidade.Exames;
 import com.consultar.entidade.UnidadeDeSaude;
+import com.consultar.repositorio.ExamesRepositorio;
 import com.consultar.repositorio.UnidadeDeSaudeRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,6 +20,8 @@ public class UnidadeDeSaudeControlador {
 
     @Autowired
     UnidadeDeSaudeRepositorio unidadeDeSaudeRepositorio;
+    @Autowired
+    ExamesRepositorio examesRepositorio;
 
 
     @RequestMapping(method = RequestMethod.GET)
@@ -60,6 +65,30 @@ public class UnidadeDeSaudeControlador {
         if(unidadeDeSaude != null){
             unidadeDeSaudeRepositorio.delete(unidadeDeSaude);
         }
+    }
+    @RequestMapping( value = "/teste",method = RequestMethod.GET)
+    public void deletar(){
+
+        Exames e=new Exames();
+        e.setNome("Raiox2123");
+        e.setDescricao("Gratuito2123");
+        e.setHorario("horario2123");
+        e.setStatus(1);
+        e.setValor((short)123);
+
+        UnidadeDeSaude unidadeDeSaude = unidadeDeSaudeRepositorio.findOne(23);
+
+
+
+        e=examesRepositorio.save(e);
+
+        List list=new ArrayList();
+        list.add(e);
+        unidadeDeSaude.setExames(list);
+
+
+        unidadeDeSaudeRepositorio.save(unidadeDeSaude);
+
     }
 
 

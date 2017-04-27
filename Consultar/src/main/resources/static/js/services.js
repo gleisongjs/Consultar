@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+app.module('starter.services', [])
 
 .factory('Com', function($http) {
 

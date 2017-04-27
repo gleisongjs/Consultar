@@ -1,0 +1,120 @@
+﻿
+<ion-view view-title="Noticias">
+    <ion-content>
+
+        <div class="modal " id="minhaDiv" style="display: none;">
+        <div class=" modal" id="" style="
+        zindex: 9999;
+         background-color: black;
+        width: 2000px;
+        opacity: 0.3;
+   height:2000px;
+   /*min-height:100%;*/
+    position: absolute  ;
+     top: 0;
+     left: 0;
+">asdasdas</div>
+            asdsad
+        </div>
+
+
+        <button type="button" ng-click="teste()">Mostrar / Esconder</button>
+
+<div class="container">
+
+
+
+        <div class="container col-md-12  " style="margin-top:10px;" >
+
+            <div class="view-form  "  >
+
+                <div class="panel panel-default ">
+
+
+                    <div class="panel-heading"><span class="glyphicon glyphicon-tasks"></span> Notícia de topo</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+
+                            <label for="titulo" class="control-label col-md-2"> Título: </label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="tituloNoticiaTopo"  maxlength="50" ng-model="feedNoticia.nome" required />
+                            </div>
+
+                            <label for="imagem" class="control-label col-md-2"> Imagem:  </label>
+                            <div class="col-md-4">
+                                <input type="file" class="form-control" name="imagemNoticiaTopo"    required />
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descricao" class="control-label col-md-2"> Descrição:  </label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" name="descricaoNoticiaTopo"  ng-model="feedNoticia.descricao"  required />
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <!-- BOTÕES DE AÇÕES -->
+                        <div class="form-group">
+                            <div style="alignment-adjust: central" ><center>
+                                <span id="load"></span>
+                                <button type="submit" name="btnsubmit" class="btn btn-success" aria-label="Left Align" ng-click="salvar(feedNoticia)">Salvar</button>
+                                <button type="reset" name="btnreset" class="btn btn-danger" aria-label="Right Align">Limpar</button>
+                            </center>
+                            </div>
+                            <div class="col-md-9" style="text-align: right"></div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+            <div class="container  " style="margin-top:10px;">
+
+
+
+                        <div class="view-form col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading"><span class="glyphicon glyphicon-tasks"></span>Noticias</div>
+                                    <div class="panel-body">
+
+
+                                        <ul class="list-inline">
+                                            <li>Titulo</li>
+                                            <li>descrição</li>
+                                            <li>Imagem</li>
+                                            <li></li>
+                                            <li></li>
+
+                                        </ul>
+                                        <ul ng-repeat="unidade in feedsNoticias" class="list-inline">
+                                            <li>{{unidade.nome}}</li>
+                                            <li>{{unidade.descricao}}</li>
+                                            <li>{{unidade.imagem}}</li>
+                                            <li> <button data-toggle="modal" data-target="modalalterar" type="submit" name="Alterar"  class="btn btn-success" aria-label="Left Align" ng-click="alterar($index)">Altera</button>
+                                            </li>
+                                            <li> <button type="submit" name="Excluir" class="btn btn-danger" aria-label="Left Align" ng-click="remover($index)">Remover</button>
+                                            </li>
+
+                                        </ul>
+
+
+
+
+                                    </div>
+                                </div>
+
+
+                        </div>
+                                        <!-- Nome do produto/marca sem sidebar quando for o pre-painel  -->
+                    </div>
+</div><!---fim containner--->
+    </ion-content>
+</ion-view>

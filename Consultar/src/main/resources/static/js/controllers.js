@@ -91,40 +91,39 @@ console.log("Login");
             })};
 
     })
-    .controller('FeedsCadastrarCtrl', function($scope,Com,$window,$rootScope) {
-        $rootScope.salvarFeed=function (feed) {
+    .controller('FeedsCadastrarCtrl', function($scope,Com,$window) {
+        $scope.salvarFeed=function (feed) {
             feed.status=1;
             Com.post('/feedNoticia',feed,function (dados) {
                 // feed=dados;
                 $window.location.href ='#/tab/feeds';
-                $rootScope.atualizarFeed();
 
             })};
 
     })
-        .controller('FeedsCtrl', function($scope,$rootScope,Com,$window) {
+        .controller('FeedsCtrl', function($scope,Com,$window) {
 var uri="/feedNoticia";
             $scope.setFeed=function (u) {
-                $rootScope.feed=$rootScope.feeds[u];
+                $scope.feed=$scope.feeds[u];
                 console.log('id:'+u);
-                console.log($rootScope.feed);
+                console.log($scope.feed);
 
                  $window.location.href ="#/tab/alterarfeeds";
 
             };
 
-            $rootScope.atualizarFeed=function () {
+            $scope.atualizarFeed=function () {
            Com.get(uri,function (data) {
-               $rootScope.feeds=data;
+               $scope.feeds=data;
 
            })
            };
 
-            $rootScope.atualizarFeed($scope);
+            $scope.atualizarFeed($scope);
         $scope.deleteFeed=function (index) {
             console.log(index);
-            Com.remove(uri,$rootScope.feeds[index].idfeedNoticias,function (dados) {
-                $rootScope.atualizarFeed();
+            Com.remove(uri,$scope.feeds[index].idfeedNoticias,function (dados) {
+                $scope.atualizarFeed();
             })};
 
 
