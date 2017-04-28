@@ -28,46 +28,31 @@ public class Usuario  implements java.io.Serializable {
             sequenceName = "usuario_id_seq",
             allocationSize = 1)//de quanto em quanto ele incrementa
 
-    @Column(name = "id")
+    @Column(name = "usuario_id")
 
 
-     private Integer id;
+    private Integer id;
     @NotNull
     @Column(name = "nome")
-     private String nome;
+    private String nome;
     @NotNull
     @Column(name = "cpf")
-     private String cpf;
+    private String cpf;
     @NotNull
     @Column(name = "tipo")
-     private Integer tipo;
+    private Integer tipo;
     @NotNull
     @Column(name = "status")
-     private Integer status;
+    private Integer status;
 
 
-
-    @OneToMany(mappedBy = "usuario" , fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<UnidadeDeSaude> unidadeDeSaude;
-    @OneToMany(mappedBy = "usuario" , fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<FeedNoticias> feedNoticias;
     @ManyToOne
     @JoinColumn(name = "imagem_id")
     private Imagem imagem;
-    @ManyToOne
-    @JoinColumn(name = "localizacao_id")
-    private Localizacao localizacao;
-
-//    public Usuario() {
-//        this.setNome(nome);
-//        this.setCpf(cpf);
-//        this.setTipo(tipo);
-//        this.setStatus(status);
-//        this.setUnidadeDeSaude(unidadeDeSaude);
-//        this.setFeedNoticias(feedNoticias);
-//        this.setImagem(imagem);
-//        this.setLocalizacao(localizacao);
-//    }
 
 
     public Integer getId() {
@@ -134,13 +119,6 @@ public class Usuario  implements java.io.Serializable {
         this.imagem = imagem;
     }
 
-    public Localizacao getLocalizacao() {
-        return localizacao;
-    }
-
-    public void setLocalizacao(Localizacao localizacao) {
-        this.localizacao = localizacao;
-    }
 }
 
 

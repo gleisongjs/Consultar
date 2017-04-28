@@ -49,7 +49,7 @@ public class Exames  implements java.io.Serializable {
      private Integer status;
 
 
-    @ManyToMany(mappedBy = "exames", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "exames", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     //@JsonManagedReference(value = "unidadeDeSaude")
     private List<UnidadeDeSaude> unidadeDeSaude;
 

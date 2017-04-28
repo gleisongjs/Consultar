@@ -32,7 +32,7 @@
         <div class="" style="padding-top: 35px;">
 
         <div  ng-repeat="feed in feeds">
-            <a href="#/tab/news-detail_1"
+            <a  ng-click=" setFeed($index)"
                collection-item-width="'100%'"
                collection-item-height="220px">
 
@@ -41,12 +41,11 @@
                     <div class="news_data">
                         <p class="title_hosp">{{feed.nome}}</p>
                         <p class="parag">
+                            {{feed.descricao}}
                           </p>
                     </div>
                 </div>
-                <a ng-click="deleteFeed($index)">deletar</a>
-                <a ng-click="setFeed($index)" >editar</a>
-            </a>
+             </a>
         </div>
         </div>
     </ion-content>

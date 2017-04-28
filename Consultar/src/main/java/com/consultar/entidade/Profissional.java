@@ -29,7 +29,7 @@ public class Profissional  implements java.io.Serializable {
             sequenceName = "profissional_id_seq",
             allocationSize = 1)//de quanto em quanto ele incrementa
 
-    @Column(name = "id")
+    @Column(name = "profissional_id")
 
      private Integer id;
     @NotNull
@@ -51,7 +51,7 @@ public class Profissional  implements java.io.Serializable {
     @Column(name = "descricao")
      private String descricao;
 
-    @OneToMany(mappedBy = "profissional")
+    @OneToMany(mappedBy = "profissional",cascade = CascadeType.ALL)
     private List<PlantaoDia> plantaoDia;
 //
 //    public Profissional(String nome, String especialidade, String horario, Integer status, Integer crm, String descricao, List<PlantaoDia> plantaoDia) {

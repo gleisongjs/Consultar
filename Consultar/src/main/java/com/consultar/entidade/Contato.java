@@ -41,7 +41,7 @@ public class Contato  implements java.io.Serializable {
     @Column(name = "status")
      private Integer status;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "setor")
     //@JsonManagedReference(value = "setor")
 

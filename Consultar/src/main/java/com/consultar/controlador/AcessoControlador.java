@@ -3,6 +3,7 @@ package com.consultar.controlador;
 import com.consultar.entidade.Acesso;
 import com.consultar.entidade.Permissao;
 import com.consultar.repositorio.AcessoRepositorio;
+import com.consultar.repositorio.PermissaoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,6 +25,8 @@ public class AcessoControlador {
 
     @Autowired
     AcessoRepositorio acessoRepositorio;
+    @Autowired
+    PermissaoRepositorio permissaoRepositorio;
     //@Autowired
     //PermissaoRepositorio  permissaoRepositorio;
 
@@ -44,14 +47,12 @@ public class AcessoControlador {
     }
     @RequestMapping(method = RequestMethod.POST)
     public Acesso criar(@RequestBody Acesso acesso){
+        Permissao permissao=permissaoRepositorio.findByNome("USER");
+
         System.out.println(acesso.toString());
         PasswordEncoder p=passwordEncoder();
 
         acesso.setSenha(p.encode(acesso.getSenha()));
-        Permissao permissao=new Permissao();
-
-        permissao.setNome("1");
-        permissao.setId(1);
         List a=new ArrayList();
 
              a.add(permissao);

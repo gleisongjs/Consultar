@@ -1,0 +1,74 @@
+
+<ion-view view-title="Hospital de Urgencias">
+    
+    <div class="bar bar-header bar-dark" >
+  <h1 class="title"></h1>
+</div>
+ <ion-nav-bar class="bar-stable">
+     
+      <ion-nav-buttons side="right"  >
+          <button class="button button-icon button-clear back_btn"      ng-click="myGoBack()">
+                  <img src="img/arrow.png"/>
+            </button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="left"  >
+            <button class="button button-icon button-clear" style="bottom:5px;">
+              <img src="img/ic3.png"/>
+            </button>
+            
+        </ion-nav-buttons>
+
+       
+    
+
+     
+ </ion-nav-bar>
+     
+  <ion-content class="main_bg">
+      
+      
+             
+       
+
+      <div class="news_detail " style="padding-top: 35px;" >
+       
+  
+      
+      
+         <div class="card">
+  <div class="item item-divider">
+   Vacinas
+   
+  </div>
+
+             <div class="item item-text-wrap" ng-repeat="vacina in vacinas">
+                 <ion-item>
+
+
+                     <h2>{{vacina.nome}}</h2>
+
+                     <h3>Descricao:</h3>
+                     <p>
+                         {{vacina.descricao}}
+                     </p>
+
+
+                     <h3>Horario:</h3>
+                     <p>
+                         {{vacina.horario}}
+                     </p>
+                     <h3>Valor:</h3>
+                     <p>
+                         {{vacina.valor}}
+                     </p>
+                 </ion-item>
+
+             </div>
+
+
+
+         </div>
+         </div>
+      </ion-content>
+
+</ion-view>

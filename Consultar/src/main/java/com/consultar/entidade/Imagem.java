@@ -44,8 +44,7 @@ public class Imagem  implements java.io.Serializable {
     @Column(name = "status")
      private Integer status;
 
-    public Imagem() {
-    }
+   
 //
 //    public Imagem(String url, String link, String nome, Integer status) {
 //       this.setUrl(url);

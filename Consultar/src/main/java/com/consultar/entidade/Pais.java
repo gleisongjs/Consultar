@@ -39,7 +39,7 @@ public class Pais  implements java.io.Serializable {
     @Column(name = "status")
      private Integer status;
 
-    @OneToMany(mappedBy = "pais")
+    @OneToMany(mappedBy = "pais",cascade = CascadeType.ALL)
     private List<Estado> estado;
 
 //    public Pais(String nome, Integer status, List<Estado> estado) {

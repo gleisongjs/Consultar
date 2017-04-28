@@ -1,0 +1,47 @@
+
+<ion-view view-title="{{unidade.nome}}">
+
+    <div class="bar bar-header bar-dark" >
+
+    </div>
+    <ion-nav-bar class="bar-stable">
+
+        <ion-nav-buttons side="left"  >
+            <button class="button button-icon button-clear"style="bottom:5px;">
+                <img src="img/ic3.png"/>
+            </button>
+        </ion-nav-buttons>
+
+        <ion-nav-buttons side="right" >
+            <button class="button button-icon button-clear" ng-click="myGoBack()" style="bottom:5px;">
+                <img src="img/arrow.png"/>
+            </button>
+        </ion-nav-buttons>
+        <ion-content class="main_bg">
+            <div class="news_detail " style="padding-top: 35px;" >
+                <div class="card">
+                    <div class="item item-divider">
+                        Profissionais
+                    </div>
+                    <div class="item item-text-wrap">
+                        <div ng-repeat="pr in profissionais">
+
+                            <script>
+                                var epc=pr.especialidade;
+                                console.log(epc);
+                            </script>
+                            <div class="item item-text-wrap">
+
+                            <p>{{pr.especialidade}}:</p>
+                            {{pr.nome}}
+                                Horario:{{pr.horario}}
+
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+
+</ion-view>

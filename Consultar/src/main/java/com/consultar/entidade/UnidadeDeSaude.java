@@ -29,7 +29,7 @@ public class UnidadeDeSaude  implements java.io.Serializable {
             sequenceName = "unidade_de_saude_id_seq",
             allocationSize = 1)//de quanto em quanto ele incrementa
 
-    @Column(name ="id")
+    @Column(name ="unidade_saude_id")
 
 
      private Long idunidadeDeSaude;
@@ -52,7 +52,7 @@ public class UnidadeDeSaude  implements java.io.Serializable {
 
 
 
-    @ManyToMany
+    @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(name = "unidade_saude_vacina",
             joinColumns=@JoinColumn(name = "unidade_de_saude_id"),
             inverseJoinColumns=@JoinColumn(name = "vacina_id"))
@@ -60,7 +60,7 @@ public class UnidadeDeSaude  implements java.io.Serializable {
 
     private List<Vacinas> vacinas;
 
-    @ManyToMany
+    @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(name = "unidade_saude_medicamento",
             joinColumns=@JoinColumn(name = "unidade_de_saude_id"),
             inverseJoinColumns=@JoinColumn(name = "medicamento_id"))
@@ -71,52 +71,63 @@ public class UnidadeDeSaude  implements java.io.Serializable {
 
 
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "unidade_saude_imagem")
     private Imagem imagem;
 
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "unidade_saude_contato")
     private Contato contato;
 
-    @ManyToOne
-    @JoinColumn(name = "unidade_saude_localizacao")
-    private Localizacao localizacao;
-
-    @ManyToMany
+    @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(name = "unidade_de_saude_exame",
             joinColumns=@JoinColumn(name = "unidade_de_saude_id"),
             inverseJoinColumns=@JoinColumn(name = "exame_id"))
   //  @JsonManagedReference(value = "unidade_de_saude_exame")
     private List<Exames> exames;
+@ManyToMany(cascade=CascadeType.ALL)
+    @JoinTable(name = "unidade_de_saude_profissional",
+            joinColumns=@JoinColumn(name = "unidade_de_saude_id"),
+            inverseJoinColumns=@JoinColumn(name = "profissional_id"))
+  //  @JsonManagedReference(value = "unidade_de_saude_exame")
+    private List<Profissional> profissional;
 
+    @OneToMany(mappedBy = "unidadeSaude",cascade=CascadeType.ALL)
+    private List<PlantaoDia> plantaoDia;
 
-    @OneToMany(mappedBy = "unidadeDeSaude")
+    @OneToMany(mappedBy = "unidadeDeSaude",cascade=CascadeType.ALL)
     private List<Leito> leito;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "usuario_id")
     private  Usuario usuario;
 
-//    public UnidadeDeSaude(String nome, String horario, Integer status, String descricao, String url, List<Vacinas> vacinas, List<Medicamento> medicamento, Imagem imagem, Contato contato, Localizacao localizacao, List<Exames> exames, List<Leito> leito, Usuario usuario) {
-//
-//        this.nome = nome;
-//        this.horario = horario;
-//        this.status = status;
-//        this.descricao = descricao;
-//        this.url = url;
-//        this.vacinas = vacinas;
-//        this.medicamento = medicamento;
-//        this.imagem = imagem;
-//        this.contato = contato;
-//        this.localizacao = localizacao;
-//        this.exames = exames;
-//        this.leito = leito;
-//        this.setUsuario(usuario);
-//    }
 
 
+    public List<Profissional> getProfissional() {
+        return profissional;
+    }
+
+    public void setProfissional(List<Profissional> profissional) {
+        this.profissional = profissional;
+    }
+
+    public List<PlantaoDia> getPlantaoDia() {
+        return plantaoDia;
+    }
+
+    public void setPlantaoDia(List<PlantaoDia> plantaoDia) {
+        this.plantaoDia = plantaoDia;
+    }
+
+    public List<Leito> getLeito() {
+        return leito;
+    }
+
+    public void setLeito(List<Leito> leito) {
+        this.leito = leito;
+    }
 
     public Long  getIdunidadeDeSaude() {
         return idunidadeDeSaude;
@@ -198,13 +209,6 @@ public class UnidadeDeSaude  implements java.io.Serializable {
         this.contato = contato;
     }
 
-    public Localizacao getLocalizacao() {
-        return localizacao;
-    }
-
-    public void setLocalizacao(Localizacao localizacao) {
-        this.localizacao = localizacao;
-    }
 
     public List<Exames> getExames() {
         return exames;

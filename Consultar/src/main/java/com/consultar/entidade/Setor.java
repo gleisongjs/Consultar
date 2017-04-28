@@ -40,7 +40,7 @@ public class Setor  implements java.io.Serializable {
      private String descricao;
     @NotNull
     @Column(name = "status")
-     private String status;
+     private Integer status;
 
     @OneToMany(mappedBy = "setor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Contato> contato;
@@ -77,11 +77,11 @@ public class Setor  implements java.io.Serializable {
         this.descricao = descricao;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

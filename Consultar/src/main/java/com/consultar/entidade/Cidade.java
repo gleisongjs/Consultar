@@ -42,7 +42,7 @@ public class Cidade  implements java.io.Serializable {
     @OneToMany(mappedBy = "cidade", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Bairro> bairro;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="estado_id")
     private Estado estado;
 

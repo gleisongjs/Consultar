@@ -36,7 +36,7 @@
         <!--collection-item-height="160px">-->
 
         <div ng-repeat="un in unidadeSaudes">
-            <a href="#/tab/un">
+            <a  ng-click="setUN($index)">
                 <div class="row">
 
                     <div class="col">
@@ -51,11 +51,16 @@
                         </div>
                     </div>
                 </div>
-                <a ng-click="deleteUn($index)">deletar</a>
-                <a ng-click="setUN($index)" >Editar</a>
-            </a>
+             </a>
             <br>
         </div>
 
     </ion-content>
 </ion-view>
+
+
+
+
+
+
+

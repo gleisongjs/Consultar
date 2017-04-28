@@ -45,12 +45,12 @@ public class FeedNoticias  implements java.io.Serializable {
     @Column(name = "status")
      private Integer status;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="imagem_id")
     private Imagem imagem;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="usuario_id")
     private Usuario usuario;
 

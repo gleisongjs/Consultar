@@ -9,9 +9,11 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
 
     app.run(function($ionicPlatform,$rootScope,$ionicHistory,$ionicModal,$ionicPopup) {
         // $rootScope.date='2016-2-11';
-         $rootScope.feed={"nome":"teste"};
-         $rootScope.unidade={"nome":"teste","id":1};
-         $rootScope.profissional={"nome":"prof","id":1};
+         $rootScope.feeds={};
+         $rootScope.feed={};
+         $rootScope.usuario={nome:"",senha:""};
+         $rootScope.credenciais={};
+
 
 
         $rootScope.change_date = function() {
@@ -22,14 +24,6 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
             $ionicHistory.goBack();
         };
 
-        $rootScope.open_detail=false;
-        $rootScope.readMore=function(){
-            if($rootScope.open_detail){
-                $rootScope.open_detail=false
-            }else{
-                $rootScope.open_detail=true
-            }
-        }
         $rootScope.search_input=false;
 
         $rootScope.search_doc=function(){
@@ -40,10 +34,6 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
                 $rootScope.search_input=true
             }
         }
-        $rootScope.setting=[{title:"Doctor news"},{title:"Hospital news"},{title:"Local news"},{title:"Notification allert"}]
-//$rootScope.news=[{id:"1",img:"img/dengue-20161013-172741.jpg"},{id:"2",img:"img/dengue-20161013-172741.jpg"}]
-        $rootScope.hospital=[{id:"1",img:"img/h1.png"},{id:"2",img:"img/h2.png"},{id:"3",img:"img/h3.png"}]
-        $rootScope.doctors=[{id:"1",img:"img/001.png",name:"John Mc Donald",specialty:"Beauty mouth and teeth"},{id:"2",img:"img/002.png",name:"Jonathan Calleri",specialty:"Neurological Surgery"},{id:"3",img:"img/003.png",name:"Donald Trump",specialty:"Allergy & Immunology"},{id:"4",img:"img/004.png",name:"Leonardo DiCaprio",specialty:"Child Psychiatry"},{id:"5",img:"img/max.png",name:"Mikle Mc Jack",specialty:"Radiation Oncology"},{id:"6",img:"img/adam.jpg",name:"Jack Reacher",specialty:"Surgery-General"}]
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -74,26 +64,26 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
 
 
         /*************************************note_detail.html******************/
-        $ionicModal.fromTemplateUrl('templates/note_detail.html',function(modal){
-            $rootScope.note_detail=modal;
-        }, {
-            scope: $rootScope,
-            animation: 'slide-in-up'
-        });
-
-        $rootScope.opennote_detail= function(){
-            $rootScope.note_detail.show();
-        };
-
-        $rootScope.closenote_detail= function() {
-            $rootScope.note_detail.hide();
-        };
-        $rootScope.$on('$destroy', function() {
-            $rootScope.note_detail.remove();
-        });
-        $rootScope.$on('modal.hidden', function() {
-            // Execute action
-        });
+        // $ionicModal.fromTemplateUrl('templates/note_detail.html',function(modal){
+        //     $rootScope.note_detail=modal;
+        // }, {
+        //     scope: $rootScope,
+        //     animation: 'slide-in-up'
+        // });
+        //
+        // $rootScope.opennote_detail= function(){
+        //     $rootScope.note_detail.show();
+        // };
+        //
+        // $rootScope.closenote_detail= function() {
+        //     $rootScope.note_detail.hide();
+        // };
+        // $rootScope.$on('$destroy', function() {
+        //     $rootScope.note_detail.remove();
+        // });
+        // $rootScope.$on('modal.hidden', function() {
+        //     // Execute action
+        // });
         /*************************************note_detail.html******************/
 
     });
@@ -117,11 +107,20 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
                 url: '/tab',
                 abstract: true,
                 templateUrl: 'templates/menu.html'
-                 ,
-                  controller: 'AppCtrl'
+            //      ,
+            //       controller: 'AppCtrl'
             })
 
 
+            .state('login', {
+                url: '/login',
+                templateUrl: 'templates/login.html'
+            })
+
+            .state('register', {
+                url: '/register',
+                templateUrl: 'templates/register.html'
+            })
 
 
 
@@ -131,15 +130,24 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
                 url: '/feeds',
                 views: {
                     'tab-feeds': {
-                        templateUrl: 'templates/feeds.html',
+                        templateUrl: 'templates/feeds.html'
 
                     }
                 }
-            }) .state('tab.alterarfeeds', {
+            })  .state('tab.tab-feeds', {
+                url: '/tab-feeds',
+                views: {
+                    'tab-feeds': {
+                        templateUrl: 'templates/tab-feeds.html'
+
+                    }
+                }
+            })
+            .state('tab.alterarfeeds', {
                 url: '/alterarfeeds',
                 views: {
                     'tab-feeds': {
-                        templateUrl: 'templates/alterarFeed.html',
+                        templateUrl: 'templates/alterarFeed.html'
 
                     }
                 }
@@ -148,11 +156,11 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
                 url: '/cadastrarfeeds',
                 views: {
                     'tab-feeds': {
-
                         templateUrl: 'templates/cadastrarFeed.html'
                     }
                 }
-            }) .state('tab.cadastrarUnidadeSaude', {
+            })
+            .state('tab.cadastrarUnidadeSaude', {
                 url: '/cadastrarUnidadeSaude',
                 views: {
                     'tab-unidadeDeSaude': {
@@ -170,8 +178,9 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
 
                     }
                 }
-            })      .state('tab.un', {
-                url: '/un',
+            })
+            .state('tab.unidadeview', {
+                url: '/unidadeview',
                 views: {
                     'tab-unidadeDeSaude': {
                         templateUrl: 'templates/unview.html'
@@ -179,14 +188,44 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
                     }
                 }
             })
-        //     .state('tab.un_view', {
-        //     url: '/un_view',
-        //     views: {
-        //         'tab-unidadesDeSaude': {
-        //             templateUrl: 'templates/unview.html'
-        //         }
-        //     }
-        // })
+            .state('tab.medicamento', {
+                url: '/medicamento',
+                views: {
+                    'tab-unidadeDeSaude': {
+                        templateUrl: 'templates/medicamentos.html'
+
+                    }
+                }
+            })
+            .state('tab.exames', {
+                url: '/exames',
+                views: {
+                    'tab-unidadeDeSaude': {
+                        templateUrl: 'templates/exames.html'
+
+                    }
+                }
+            })
+            .state('tab.vacinas', {
+                url: '/vacinas',
+                views: {
+                    'tab-unidadeDeSaude': {
+                        templateUrl: 'templates/vacinas.html'
+
+                    }
+                }
+            })
+
+            .state('tab.profissional', {
+                url: '/profissional',
+                views: {
+                    'tab-unidadeDeSaude': {
+                        templateUrl: 'templates/profissionais.html'
+
+                    }
+                }
+            })
+
             .state('tab.alterarunidadeDeSaude', {
                 url: '/alterarunidadeDeSaude',
                 views: {
@@ -196,112 +235,6 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
                     }
                 }
             })
-            .state('login', {
-                url: '/login',
-                templateUrl: 'templates/login.html'
-            })
-
-            .state('register', {
-                url: '/register',
-                templateUrl: 'templates/register.html'
-            })
-
-
-
-
-
-
-
-
-
-
-
-            .state('tab.calender', {
-                url: '/calender',
-                views: {
-                    'tab-calender': {
-                        templateUrl: 'templates/tab-calender.html'
-                    }
-                }
-            })
-            .state('tab.doctor-detail', {
-                url: '/doctor-detail',
-                views: {
-                    'tab-doctor': {
-                        templateUrl: 'templates/doctor-detail.html'
-                    }
-                }
-            })
-
-
-
-            .state('tab.news-detail', {
-                url: '/news-detail',
-                views: {
-                    'tab-news': {
-                        templateUrl: 'templates/news-detail.html'
-                    }
-                }
-            })
-
-            .state('tab.news-detail1', {
-                url: '/news-detail_1',
-                views: {
-                    'tab-news': {
-                        templateUrl: 'templates/news-detail_1.html'
-                    }
-                }
-            })
-            .state('tab.news-detail11', {
-                url: '/news-detail_1_1',
-                views: {
-                    'tab-news': {
-                        templateUrl: 'templates/news-detail_1_1.html'
-                    }
-                }
-            })
-
-
-
-
-
-
-            .state('tab.exames', {
-                url: '/exames',
-                views: {
-                    'tab-unidadesDeSaude': {
-                        templateUrl: 'templates/exames.html'
-                    }
-                }
-            })
-
-            .state('tab.profissionais', {
-                url: '/profissionais',
-                views: {
-                    'tab-unidadesDeSaude': {
-                        templateUrl: 'templates/profissionais.html'
-                    }
-                }
-            })
-
-            .state('tab.medicamentos', {
-                url: '/medicamentos',
-                views: {
-                    'tab-unidadesDeSaude': {
-                        templateUrl: 'templates/medicamentos.html'
-                    }
-                }
-            })
-
-            .state('tab.vacinas', {
-                url: '/vacinas',
-                views: {
-                    'tab-unidadesDeSaude': {
-                        templateUrl: 'templates/vacinas.html'
-                    }
-                }
-            })
-
 
 
             .state('tab.localizacao', {
@@ -313,24 +246,9 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
                 }
             })
 
-            .state('tab.noticias', {
-                url: '/noticias',
-                views: {
-                    'tab-noticias': {
-                        templateUrl: 'templates/tab-noticias.html',
 
-                    }
-                }
-            })
 
-            .state('tab.news', {
-                url: '/news',
-                views: {
-                    'tab-news': {
-                        templateUrl: 'templates/tab-news.html'
-                    }
-                }
-            });
+            ;
 
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/login');

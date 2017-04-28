@@ -36,7 +36,7 @@ public class Complemento  implements java.io.Serializable {
      private String descricao;
     @NotNull
     @Column(name = "status")
-     private String status;
+     private Integer status;
 
 //    public Complemento(String descricao, String status) {
 //        this.setDescricao(descricao);
@@ -60,11 +60,11 @@ public class Complemento  implements java.io.Serializable {
         this.descricao = descricao;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 }

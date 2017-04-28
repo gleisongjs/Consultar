@@ -1,0 +1,40 @@
+<ion-view ng-controller="FeedsCtrl" >
+    <ion-nav-bar class="bar-stable det_page">
+        <ion-nav-buttons side="right" >
+            <button class="button button-icon button-clear back_btn" ng-click="myGoBack()">
+                <img src="img/arrow.png"/>
+            </button>
+        </ion-nav-buttons>
+
+        <ion-nav-buttons side="left">
+            <a href="#/login" class="button button-icon button-clear left_btn">
+                <img src="img/ic1.png"/>
+            </a>
+            <button class="button button-icon button-clear ser_icon left_btn" ng-click="search_doc()">
+                <img src="img/ic2.png"/>
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <div ng-class="{'animated slideInRight':search_input}" class="bar bar-subheader">
+        <div class="list ser_inpt" ng-if="search_input">
+            <label class="item item-input">
+                <input type="text" placeholder="Search">
+            </label>
+        </div>
+    </div>
+
+    <ion-content>
+
+        <div class="news_detail">
+            <img src="img/dengue-20161013-172741.jpg"/>
+            <div class="padding">
+                <p class="title_hosp">{{feedNoticia.nome}}</p>
+
+                <p class="news_txt">
+                {{feedNoticia.descricao}}
+                </p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

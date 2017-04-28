@@ -38,7 +38,7 @@ public class Estado  implements java.io.Serializable {
     @NotNull
     @Column(name = "status")
      private Integer status;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "pais_id")
      private Pais pais;
 

@@ -39,10 +39,10 @@ public class Leito  implements java.io.Serializable {
      private String descricao;
     @NotNull
     @Column(name = "status")
-     private String status;
+     private Integer status;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "unidade_de_saude_id")
      private UnidadeDeSaude unidadeDeSaude;
 
@@ -78,11 +78,11 @@ public class Leito  implements java.io.Serializable {
         this.descricao = descricao;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

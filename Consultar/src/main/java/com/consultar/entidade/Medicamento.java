@@ -41,19 +41,10 @@ public class Medicamento implements java.io.Serializable {
 
     @NotNull
     @Column(name = "status")
-    private String status;
+    private Integer status;
 
     @OneToMany(mappedBy = "medicamento",  fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<UnidadeDeSaude> unidadeDeSaude;
-
-//    public Medicamento(String nome, String descricao, String status, List<UnidadeDeSaude> unidadeDeSaude) {
-//        this.setNome(nome);
-//        this.setDescricao(descricao);
-//        this.setStatus(status);
-//        this.setUnidadeDeSaude(unidadeDeSaude);
-//    }
-
-
     public Integer getId() {
         return id;
     }
@@ -78,11 +69,11 @@ public class Medicamento implements java.io.Serializable {
         this.descricao = descricao;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

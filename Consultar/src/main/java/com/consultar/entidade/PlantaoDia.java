@@ -28,7 +28,7 @@ public class PlantaoDia implements java.io.Serializable {
             sequenceName = "platao_dia_id_seq",
             allocationSize = 1)//de quanto em quanto ele incrementa
 
-    @Column(name = "id")
+    @Column(name = "plantao_dia_id")
 
 
      private Integer id;
@@ -43,11 +43,15 @@ public class PlantaoDia implements java.io.Serializable {
      private String descricao;
     @NotNull
     @Column(name = "status")
-     private String status;
+     private Integer status;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "profissional_id")
     private Profissional profissional;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "unidade_saude_id")
+    private UnidadeDeSaude unidadeSaude;
 
 //    public PlantaoDia(String horario, Date data, String descricao, String status, Profissional profissional) {
 //        this.horario = horario;
@@ -57,6 +61,14 @@ public class PlantaoDia implements java.io.Serializable {
 //        this.setProfissional(profissional);
 //    }
 
+
+    public UnidadeDeSaude getUnidadeSaude() {
+        return unidadeSaude;
+    }
+
+    public void setUnidadeSaude(UnidadeDeSaude unidadeSaude) {
+        this.unidadeSaude = unidadeSaude;
+    }
 
     public Integer getId() {
         return id;
@@ -90,11 +102,11 @@ public class PlantaoDia implements java.io.Serializable {
         this.descricao = descricao;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

@@ -1,0 +1,53 @@
+<ion-view view-title="">
+
+    <div class="bar bar-header bar-dark" >
+        <h1 class="title">Hospital de Urgências</h1>
+    </div>
+    <ion-nav-bar class="bar-stable">
+
+        <ion-nav-buttons side="left"  >
+            <button class="button button-icon button-clear" style="bottom:5px;">
+                <img src="img/ic3.png"/>
+            </button>
+        </ion-nav-buttons>
+
+        <ion-nav-buttons side="right" >
+            <button class="button button-icon button-clear" ng-click="myGoBack()" style="bottom:5px;">
+                <img src="img/arrow.png"/>
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <div ng-class="{'animated slideInRight':search_input}" class="bar bar-subheader">
+        <div class="list ser_inpt" ng-if="search_input">
+            <label class="item item-input">
+                <input type="text" placeholder="Search"/>
+            </label>
+        </div>
+    </div>  
+    <ion-content class="main_bg">
+        <div class="news_detail " style="padding-top: 35px;" >
+            <div class="card">
+                <div class="item item-divider">
+                    Medicamentos
+
+                </div>
+
+                <div ng-repeat="medicamento in medicamentos">
+
+
+                    <div class="item item-text-wrap">
+
+                        <ion-item>{{medicamento.nome}}:
+                            <a class=" item-icon-right" href="#">
+                                <i class="icon ion-ios-checkmark-outline"></i>
+                            </a>
+                         </ion-item>
+
+                    </div>
+                </div>
+        </div>
+        </div>
+    </ion-content>
+
+</ion-view>

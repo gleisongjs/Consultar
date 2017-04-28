@@ -24,7 +24,7 @@ var controller =angular.module('starter.controllers', [])
         }
         })
 .controller('loginCtrl', function($scope,Com,$location,Mensagem,$window) {
-console.log("Login");
+    console.log("Login");
 
     $scope.logar =function (usuario) {
 
@@ -49,19 +49,31 @@ console.log("Login");
   }
   }
   )
-    .controller('unidadeDeSaudeCtrl', function($scope, $http,Com,$window) {
+    .controller('unidadeDeSaudeCtrl', function($scope, $http,Com,$window,$rootScope) {
         var uri="/unidadeSaude";
         $scope.un={};
 
         $scope.setUN=function (u) {
-            un=$scope.unidadeSaudes[u];
-            $window.location.href ="#/tab/alterarunidadeDeSaude";
+            $rootScope.unidade=$scope.unidadeSaudes[u];
+            $rootScope.profissionais=$rootScope.unidade.profissional;
+            $rootScope.medicamentos=$rootScope.unidade.medicamento;
+            $rootScope.exames=$rootScope.unidade.exames;
+            $rootScope.vacinas=$rootScope.unidade.vacinas;
+            $rootScope.plantaoDia=$rootScope.unidade.plantaoDia;
+
+
+
+            $window.location.href ="#/tab/unidadeview";
           };
 
         $scope.atualizarUN=function () {
 
                     Com.get(uri,function (dados) {
                         $scope.unidadeSaudes=dados;
+                        $rootScope.exames=$scope.unidadeSaudes[0].exames;
+                        $rootScope.vacinas=$scope.unidadeSaudes[0].vacinas;
+                        $rootScope.profissionais=$scope.unidadeSaudes[0].usurio;
+
                 });
 
         };
@@ -101,14 +113,14 @@ console.log("Login");
             })};
 
     })
-        .controller('FeedsCtrl', function($scope,Com,$window) {
+        .controller('FeedsCtrl', function($scope,Com,$window,$rootScope) {
 var uri="/feedNoticia";
             $scope.setFeed=function (u) {
-                $scope.feed=$scope.feeds[u];
+                $rootScope.feedNoticia=$scope.feeds[u];
                 console.log('id:'+u);
                 console.log($scope.feed);
 
-                 $window.location.href ="#/tab/alterarfeeds";
+                 $window.location.href ="#/tab/tab-feeds";
 
             };
 

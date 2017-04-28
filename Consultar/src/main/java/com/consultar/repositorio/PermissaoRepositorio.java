@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PermissaoRepositorio extends JpaRepository<Permissao, Long> {
-
+    Permissao findByNome(String nome);
 }

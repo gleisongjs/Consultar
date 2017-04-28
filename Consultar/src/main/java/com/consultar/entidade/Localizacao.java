@@ -33,22 +33,45 @@ public class Localizacao  implements java.io.Serializable {
      private Integer idlocalizacao;
     @NotNull
     @Column(name = "status")
-     private String status;
+     private Integer status;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="bairro_id")
     private  Bairro bairro;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "rua_id")
      private Rua rua;
 
+
+    @NotNull
+    @Column(name = "latitude")
+    private String latitude;
+    @NotNull
+    @Column(name = "longitude")
+    private String longitude;
 //    public Localizacao(String status, Bairro bairro, Rua rua) {
 //        this.setStatus(status);
 //        this.setBairro(bairro);
 //        this.setRua(rua);
 //    }
 
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
 
     public Integer getIdlocalizacao() {
         return idlocalizacao;
@@ -58,11 +81,11 @@ public class Localizacao  implements java.io.Serializable {
         this.idlocalizacao = idlocalizacao;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
