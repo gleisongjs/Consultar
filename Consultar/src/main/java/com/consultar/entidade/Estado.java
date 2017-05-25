@@ -3,9 +3,6 @@ package com.consultar.entidade;
 
 
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -16,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @Table(name="estado"
     ,catalog="consultar"
 )
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idestado")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idestado")
 
 public class Estado  implements java.io.Serializable {
 
@@ -39,14 +36,17 @@ public class Estado  implements java.io.Serializable {
     @Column(name = "status")
      private Integer status;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pais_id")
+    @JoinColumn(name = "pais")
      private Pais pais;
 
-//    public Estado(String nome, Integer status, Pais paisid) {
-//        this.nome = nome;
-//        this.status = status;
-//        this.pais = paisid;
-//    }
+
+    public Pais getPais() {
+        return pais;
+    }
+
+    public void setPais(Pais pais) {
+        this.pais = pais;
+    }
 
     public Integer getIdestado() {
         return idestado;
@@ -72,13 +72,6 @@ public class Estado  implements java.io.Serializable {
         this.status = status;
     }
 
-    public Pais getPaisid() {
-        return pais;
-    }
-
-    public void setPaisid(Pais paisid) {
-        this.pais = paisid;
-    }
-}
+   }
 
 

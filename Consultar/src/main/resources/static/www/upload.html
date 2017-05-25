@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.js"></script>
+
+    // bind the on-change event
+    <script type="application/javascript">
+    /** * Upload the file sending it via Ajax at the Spring Boot server. */
+    $(document).ready(function() { $("#upload-file-input").on("change", uploadFile()); });
+
+    function uploadFile() {
+        $.ajax({ url: "/upload", type: "POST",
+            data: new FormData($("#upload-file-form")[0]),
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function () {
+            // Handle upload success // ...
+                alert("Enviado")
+                }
+                , error: function () {
+                    // Handle upload error // ...
+                    } });  // function uploadFile
+
+            }
+
+    </script>
+</head>
+<body >
+<form id="upload-file-form"> <label for="upload-file-input">Upload your file:</label> <input id="upload-file-input" type="file" name="uploadFile" accept="*" />
+    <button type="submit" value="enviar" onclick="uploadFile()">Enviar</button> </form>
+</body>
+</html>

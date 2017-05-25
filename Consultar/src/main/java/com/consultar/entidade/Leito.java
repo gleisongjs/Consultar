@@ -41,10 +41,10 @@ public class Leito  implements java.io.Serializable {
     @Column(name = "status")
      private Integer status;
 
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "unidade_de_saude_id")
-     private UnidadeDeSaude unidadeDeSaude;
+//
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "unidade_de_saude_id")
+//     private UnidadeDeSaude unidadeDeSaude;
 
 //    public Leito(int tipo, String descricao, String status, UnidadeDeSaude unidadeDeSaude) {
 //        this.setTipo(tipo);
@@ -86,13 +86,13 @@ public class Leito  implements java.io.Serializable {
         this.status = status;
     }
 
-    public UnidadeDeSaude getUnidadeDeSaude() {
-        return unidadeDeSaude;
-    }
-
-    public void setUnidadeDeSaude(UnidadeDeSaude unidadeDeSaude) {
-        this.unidadeDeSaude = unidadeDeSaude;
-    }
+//    public UnidadeDeSaude getUnidadeDeSaude() {
+//        return unidadeDeSaude;
+//    }
+//
+//    public void setUnidadeDeSaude(UnidadeDeSaude unidadeDeSaude) {
+//        this.unidadeDeSaude = unidadeDeSaude;
+//    }
 }
 
 

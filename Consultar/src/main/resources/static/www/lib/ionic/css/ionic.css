@@ -3781,7 +3781,7 @@ a.subdued {
 
 .action-sheet-open {
   pointer-events: none; }
-  .action-sheet-open.modal-open .modal2 {
+  .action-sheet-open.modal2-open .modal22 {
     pointer-events: none; }
   .action-sheet-open .action-sheet-backdrop {
     pointer-events: auto; }
@@ -5422,8 +5422,8 @@ ion-tabs.tabs-color-active-dark .tab-item {
  * --------------------------------------------------
  * Modals are independent windows that slide in from off-screen.
  */
-.modal-backdrop,
-.modal-backdrop-bg {
+.modal2-backdrop,
+.modal2-backdrop-bg {
   position: fixed;
   top: 0;
   left: 0;
@@ -5431,10 +5431,10 @@ ion-tabs.tabs-color-active-dark .tab-item {
   width: 100%;
   height: 100%; }
 
-.modal-backdrop-bg {
+.modal2-backdrop-bg {
   pointer-events: none; }
 
-.modal2 {
+.modal22 {
   display: block;
   position: absolute;
   top: 0;
@@ -5445,46 +5445,46 @@ ion-tabs.tabs-color-active-dark .tab-item {
   background-color: #fff; }
 
 @media (min-width: 680px) {
-  .modal2 {
+  .modal22 {
     top: 20%;
     right: 20%;
     bottom: 20%;
     left: 20%;
     min-height: 240px;
     width: 60%; }
-  .modal2.ng-leave-active {
+  .modal22.ng-leave-active {
     bottom: 0; }
-  .platform-ios.platform-cordova .modal-wrapper .modal .bar-header:not(.bar-subheader) {
+  .platform-ios.platform-cordova .modal2-wrapper .modal2 .bar-header:not(.bar-subheader) {
     height: 44px; }
-    .platform-ios.platform-cordova .modal-wrapper .modal .bar-header:not(.bar-subheader) > * {
+    .platform-ios.platform-cordova .modal2-wrapper .modal2 .bar-header:not(.bar-subheader) > * {
       margin-top: 0; }
-  .platform-ios.platform-cordova .modal-wrapper .modal .tabs-top > .tabs,
-  .platform-ios.platform-cordova .modal-wrapper .modal .tabs.tabs-top {
+  .platform-ios.platform-cordova .modal2-wrapper .modal2 .tabs-top > .tabs,
+  .platform-ios.platform-cordova .modal2-wrapper .modal2 .tabs.tabs-top {
     top: 44px; }
-  .platform-ios.platform-cordova .modal-wrapper .modal .has-header,
-  .platform-ios.platform-cordova .modal-wrapper .modal .bar-subheader {
+  .platform-ios.platform-cordova .modal2-wrapper .modal2 .has-header,
+  .platform-ios.platform-cordova .modal2-wrapper .modal2 .bar-subheader {
     top: 44px; }
-  .platform-ios.platform-cordova .modal-wrapper .modal .has-subheader {
+  .platform-ios.platform-cordova .modal2-wrapper .modal2 .has-subheader {
     top: 88px; }
-  .platform-ios.platform-cordova .modal-wrapper .modal .has-header.has-tabs-top {
+  .platform-ios.platform-cordova .modal2-wrapper .modal2 .has-header.has-tabs-top {
     top: 93px; }
-  .platform-ios.platform-cordova .modal-wrapper .modal .has-header.has-subheader.has-tabs-top {
+  .platform-ios.platform-cordova .modal2-wrapper .modal2 .has-header.has-subheader.has-tabs-top {
     top: 137px; }
-  .modal-backdrop-bg {
+  .modal2-backdrop-bg {
     -webkit-transition: opacity 300ms ease-in-out;
     transition: opacity 300ms ease-in-out;
     background-color: #000;
     opacity: 0; }
-  .active .modal-backdrop-bg {
+  .active .modal2-backdrop-bg {
     opacity: 0.5; } }
 
-.modal-open {
+.modal2-open {
   pointer-events: none; }
-  .modal-open .modal,
-  .modal-open .modal-backdrop {
+  .modal2-open .modal2,
+  .modal2-open .modal2-backdrop {
     pointer-events: auto; }
-  .modal-open.loading-active .modal,
-  .modal-open.loading-active .modal-backdrop {
+  .modal2-open.loading-active .modal2,
+  .modal2-open.loading-active .modal2-backdrop {
     pointer-events: none; }
 
 /**
@@ -5735,7 +5735,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
 
 .popup-open {
   pointer-events: none; }
-  .popup-open.modal-open .modal {
+  .popup-open.modal2-open .modal2 {
     pointer-events: none; }
   .popup-open .popup-backdrop, .popup-open .popup {
     pointer-events: auto; }

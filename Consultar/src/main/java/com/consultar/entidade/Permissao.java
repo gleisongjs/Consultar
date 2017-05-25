@@ -3,14 +3,12 @@ package com.consultar.entidade;
 /**
  * Created by Gleisongjs on 18/03/2017.
  */
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table(name="permissao")
@@ -26,21 +24,21 @@ public class Permissao implements Serializable{
             sequenceName = "permissao_id_seq",
             allocationSize = 1)//de quanto em quanto ele incrementa
     @Column(name = "id")
-    private int id;
+    private long id;
 
     @NotNull
     @Column(name = "nome")
     private String nome;
 
-    @ManyToMany(mappedBy = "permissoes", fetch = FetchType.LAZY)
-    @JsonBackReference
-    private List<Acesso> acesso;
+//    @ManyToMany(mappedBy = "permissoes", fetch = FetchType.LAZY)
+//    //@JsonBackReference
+//    private List<Acesso> acesso;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -52,12 +50,12 @@ public class Permissao implements Serializable{
         this.nome = nome;
     }
 
-    public List<Acesso> getPessoas() {
-        return acesso;
-    }
-
-    public void setPessoas(List<Acesso> acesso) {
-        this.acesso = acesso;
-    }
+//    public List<Acesso> getPessoas() {
+//        return acesso;
+//    }
+//
+//    public void setPessoas(List<Acesso> acesso) {
+//        this.acesso = acesso;
+//    }
 }
 

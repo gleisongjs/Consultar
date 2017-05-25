@@ -1,4 +1,4 @@
-﻿app.controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover, $timeout) {
+﻿app.controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover, $location) {
     // Form data for the login modal
     $scope.loginData = {};
 
@@ -9,27 +9,6 @@
         });
     }
 
-    var fab = document.getElementById('fab');
-    fab.addEventListener('click', function () {
-        //location.href = 'https://twitter.com/satish_vr2011';
-
-        Path=$location.path();
-        if('/tab/feednoticia'==Path){
-
-
-            $window.location.href ='#/tab/feednoticia';
-        }
-        if('/tab/unidadeDeSaude'==Path){
-            $window.location.href ='#/tab/cadastrarUnidadeSaude';
-        }
-        if('/tab/localizacao'==Path){
-            $window.location.href ='';
-        }
-
-
-
-
-    });
 
     // .fromTemplate() method
     var template = '<ion-popover-view>' +

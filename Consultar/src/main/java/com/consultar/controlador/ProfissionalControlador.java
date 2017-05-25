@@ -26,7 +26,7 @@ public class ProfissionalControlador {
     }
 
     @RequestMapping(value="/{id}", method = RequestMethod.GET)
-    public Profissional buscarPeloId(@PathVariable long id){
+    public Profissional buscarPeloId(@PathVariable int id){
         return profissionalRepositorio.findOne(id);
     }
 
@@ -53,8 +53,9 @@ public class ProfissionalControlador {
     }
 
     @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
-    public void deletar(@PathVariable long id){
+    public void deletar(@PathVariable int id){
 
+        System.out.println("id:"+id);
         Profissional unidadeDeSaude = profissionalRepositorio.findOne(id);
         if(unidadeDeSaude != null){
             profissionalRepositorio.delete(unidadeDeSaude);

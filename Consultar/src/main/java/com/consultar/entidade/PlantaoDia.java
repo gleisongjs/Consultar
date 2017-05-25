@@ -2,9 +2,6 @@ package com.consultar.entidade;
 // Generated 31/03/2017 19:48:10 by Hibernate Tools 4.3.1
 
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -16,7 +13,7 @@ import java.util.Date;
 @Table(name="platao_dia"
     ,catalog="consultar"
 )
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 
 public class PlantaoDia implements java.io.Serializable {
     @Id
@@ -45,29 +42,17 @@ public class PlantaoDia implements java.io.Serializable {
     @Column(name = "status")
      private Integer status;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "profissional_id")
     private Profissional profissional;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "unidade_saude_id")
-    private UnidadeDeSaude unidadeSaude;
-
-//    public PlantaoDia(String horario, Date data, String descricao, String status, Profissional profissional) {
-//        this.horario = horario;
-//        this.data = data;
-//        this.descricao = descricao;
-//        this.status = status;
-//        this.setProfissional(profissional);
-//    }
-
-
-    public UnidadeDeSaude getUnidadeSaude() {
-        return unidadeSaude;
-    }
-
-    public void setUnidadeSaude(UnidadeDeSaude unidadeSaude) {
-        this.unidadeSaude = unidadeSaude;
+    public PlantaoDia(){}
+    public PlantaoDia(String horario, Date data, String descricao, Integer status, Profissional profissional) {
+        this.horario = horario;
+        this.data = data;
+        this.descricao = descricao;
+        this.status = status;
+        this.profissional = profissional;
     }
 
     public Integer getId() {

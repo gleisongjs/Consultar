@@ -2,9 +2,6 @@ package com.consultar.entidade;
 // Generated 31/03/2017 19:48:10 by Hibernate Tools 4.3.1
 
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -15,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @Table(name="contato"
     ,catalog="consultar"
 )
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idcontato")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idcontato")
 
 public class Contato  implements java.io.Serializable {
 

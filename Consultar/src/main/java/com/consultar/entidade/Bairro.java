@@ -2,9 +2,6 @@ package com.consultar.entidade;
 // Generated 31/03/2017 19:48:10 by Hibernate Tools 4.3.1
 
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -15,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @Table(name="bairro"
     ,catalog="consultar"
 )
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idbairro")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idbairro")
 
 public class Bairro  implements java.io.Serializable {
 
@@ -44,14 +41,12 @@ public class Bairro  implements java.io.Serializable {
      private Cidade cidade;
 
 
-    @OneToOne(mappedBy = "bairro", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Localizacao localizacao;
 
-//    public Bairro(String nome, Integer status, Cidade cidade, List<Localizacao> localizacao) {
+//    public Bairro(String nome, Integer status, Cidade cidade, List<Endereco> endereco) {
 //        this.setNome(nome);
 //        this.setStatus(status);
 //        this.setCidade(cidade);
-//        this.setLocalizacao(localizacao);
+//        this.setEndereco(endereco);
 //    }
 
 
@@ -87,13 +82,7 @@ public class Bairro  implements java.io.Serializable {
         this.cidade = cidade;
     }
 
-    public Localizacao getLocalizacao() {
-        return localizacao;
-    }
 
-    public void setLocalizacao(Localizacao localizacao) {
-        this.localizacao = localizacao;
-    }
 }
 
 

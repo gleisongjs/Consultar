@@ -1,4 +1,4 @@
-<ion-view view-title="">
+<ion-view view-title="" ng-controller="unidadeDeSaudeCtrl">
 
     <div class="bar bar-reader bar-dark" >
         <h1 class="title">{{unidade.nome}}</h1>
@@ -28,8 +28,9 @@
                     </div>
                     <div ng-repeat="plantao in plantaoDia">
                     <div class="item item-text-wrap"  >
-                        <p>{{plantao.descricao}}:</p>
-                        {{plantao.nome}}
+
+                        {{ plantao.profissional.especialidade}}:
+                        {{ plantao.profissional.nome }}
                     </div>
 
                     </div>
@@ -72,12 +73,35 @@
                         </div> 
                     </div>
                 </div>
-                <div class="list card">
+
+            <!--<div class="list card">-->
+                <!--<div class="item item-divider">-->
+                    <!--Descrição-->
+                <!--</div>-->
+
+                 <!--descricao: ASDASDAS-->
+
+            <!--</div>-->
+                <!--<div class="list card" >-->
                     <div class="item item-divider">
                         Localização
                     </div>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3829.464801218107!2d-48.944270585138426!3d-16.2991780887392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ea418d2836dd3%3A0x7193ccf5f2b6a99b!2sHospital+de+Urg%C3%AAncias+Dr.+Henrique+Santillo!5e0!3m2!1spt-BR!2sbr!4v1478642787122" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>       
+
+                    <!--<iframe src="{{un.url}}" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>-->
+                    <!--<div id="mapun" ng-controller="MapUnCtrl">-->
+<!--Map-->
+                    <!--</div>-->
+                      <!--<p class="date" style="margin-left: 10px;">-->
+                        <i  class ="icon ion-location"></i>
+                        {{unidade.endereco.complemento.descricao}} ,
+                        {{unidade.endereco.rua.nome}} ,
+                        {{unidade.endereco.rua.bairro.nome}} ,
+                        {{unidade.endereco.rua.bairro.cidade.nome}} ,
+                        {{unidade.endereco.rua.bairro.cidade.estado.nome}} ,
+                        {{unidade.endereco.rua.bairro.cidade.estado.pais.nome}}
+                    </p>
+                </div>
                 <br>
             </div>
         </ion-content>

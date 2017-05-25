@@ -29,31 +29,55 @@
 
     <ion-content class="main_bg hospital_list">
 
-        <!--<div class="" style="padding-top: 35px;">-->
-        <!---->
 
-        <!--collection-item-width="'100%'"-->
-        <!--collection-item-height="160px">-->
+            <div class="" style="padding-top: 45px">
+                <a ng-click="setUN($index)"
+                   collection-repeat="un in unidadeSaudes"
+                   collection-item-width="'100%'"
+                   collection-item-height="160px"
+                >
 
-        <div ng-repeat="un in unidadeSaudes">
-            <a  ng-click="setUN($index)">
-                <div class="row">
-
-                    <div class="col">
-                        <img src={{un.url}}/>
-                    </div>
-
-                    <div class="col hospital_data">
-                        <div class="padding">
-                            <h3>{{un.nome}}</h3>
-                            <br>
-                           {{ un.endereco}}
+                    <div class="row">
+                        <div class="col"  collection-item-width="'160px'">
+                            <img src="{{un.imagem.url}}"/>
                         </div>
+                        <div class="col hospital_data">
+
+                            <div class="padding">
+                                <!--<h3>{{un.nome}}</h3>-->
+                                <p class="title_hosp positive" style="color: #00c9f5">{{un.nome}}</p>
+                                <p> {{un.descricao}}</p>
+                                <span class="date">
+                                    <i  class ="icon ion-ios-timer"></i>
+                         <iframe src="{{un.url}}" /></span>
+                                <p class="subdued">
+                                    <i  class ="icon ion-location"></i>
+                                    {{un.endereco.complemento.descricao}} ,
+                                    {{un.endereco.rua.nome}} ,
+                                    {{un.endereco.rua.bairro.nome}} ,
+                                    {{un.endereco.rua.bairro.cidade.nome}} ,
+                                    {{un.endereco.rua.bairro.cidade.estado.nome}} ,
+                                    {{un.endereco.rua.bairro.cidade.estado.pais.nome}}
+                                </p>
+
+
+
+
+
+                                <!--<div class="rate">-->
+                                    <!--<i class="ion-star"></i>-->
+                                    <!--<i class="ion-star"></i>-->
+                                    <!--<i class="ion-star"></i>-->
+                                    <!--<i class="ion-star in_active"></i>-->
+                                    <!--<i class="ion-star in_active"></i>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+
                     </div>
-                </div>
-             </a>
-            <br>
-        </div>
+
+                </a>
+            </div>
 
     </ion-content>
 </ion-view>

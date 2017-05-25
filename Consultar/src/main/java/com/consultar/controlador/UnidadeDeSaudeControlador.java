@@ -33,11 +33,12 @@ public class UnidadeDeSaudeControlador {
     @RequestMapping(method = RequestMethod.GET)
     public List<UnidadeDeSaude> listar(){
 
+        System.out.println("un:"+unidadeDeSaudeRepositorio);
         return unidadeDeSaudeRepositorio.findAll();
     }
 
     @RequestMapping(value="/{id}", method = RequestMethod.GET)
-    public UnidadeDeSaude buscarPeloId(@PathVariable long id){
+    public UnidadeDeSaude buscarPeloId(@PathVariable int id){
         return unidadeDeSaudeRepositorio.findOne(id);
     }
 
@@ -45,6 +46,20 @@ public class UnidadeDeSaudeControlador {
     public UnidadeDeSaude criar(@RequestBody UnidadeDeSaude unidadeDeSaude){
 
         if (unidadeDeSaude!=null) {
+            if (unidadeDeSaude.getStatus()==null){
+                unidadeDeSaude.setStatus(1);
+                unidadeDeSaude.getEndereco().setStatus(1);
+                unidadeDeSaude.getEndereco().getComplemento().setStatus(1);
+                unidadeDeSaude.getEndereco().getRua().setStatus(1);
+                unidadeDeSaude.getEndereco().getRua().getBairro().setStatus(1);
+                unidadeDeSaude.getEndereco().getRua().getBairro().getCidade().setStatus(1);
+                unidadeDeSaude.getEndereco().getRua().getBairro().getCidade().getEstado().setStatus(1);
+                unidadeDeSaude.getEndereco().getRua().getBairro().getCidade().getEstado().getPais().setStatus(1);
+
+
+
+            }
+
             unidadeDeSaude=unidadeDeSaudeRepositorio.save(unidadeDeSaude);
 
 
@@ -65,9 +80,9 @@ public class UnidadeDeSaudeControlador {
 
 
     @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
-    public void deletar(@PathVariable long id){
+    public void deletar(@PathVariable int id){
 
-        UnidadeDeSaude unidadeDeSaude = unidadeDeSaudeRepositorio.findOne((long)id);
+        UnidadeDeSaude unidadeDeSaude = unidadeDeSaudeRepositorio.findOne(id);
         if(unidadeDeSaude != null){
             unidadeDeSaudeRepositorio.delete(unidadeDeSaude);
         }
@@ -82,19 +97,19 @@ public class UnidadeDeSaudeControlador {
         Exames e=new Exames();
         Medicamento medicamento=new Medicamento();
         medicamento.setNome("dipirona");
-        medicamento.setDescricao("Descricao Dipirona");
+        medicamento.setDescricao("Descricao Medicamento");
         medicamento.setStatus(1);
 
         Profissional profissional=new Profissional();
-        profissional.setNome("Profissional1");
-        profissional.setDescricao("Descricao Profissional");
+        profissional.setNome("João");
+        profissional.setDescricao("Cardiologista");
         profissional.setHorario("00:00-00:00");
         profissional.setCrm(12345678);
-        profissional.setEspecialidade("Especialidade Profissional");
+        profissional.setEspecialidade("Cardiologista");
         profissional.setStatus(1);
 
         Vacinas vacinas=new Vacinas();
-        vacinas.setNome("Nome Vacina");
+        vacinas.setNome("Tetano");
         vacinas.setDescricao("Descricao Vacina");
         vacinas.setValor((short)0);
         vacinas.setStatus(1);
@@ -102,19 +117,33 @@ public class UnidadeDeSaudeControlador {
         Usuario usuario=new Usuario();
         usuario.setTipo(1);
 
-        Estado estado=new Estado();
         Pais pais=new Pais();
+        pais.setNome("Brasil");
+        pais.setStatus(1);
+
+        Estado estado=new Estado();
+        estado.setNome("Goias");
+        estado.setStatus(1);
+        estado.setPais(pais);
+
+
         Cidade cidade=new Cidade();
-        cidade.setNome("Nome Cidade");
+        cidade.setNome("Anapolis");
         cidade.setStatus(1);
-        Rua rua=new Rua();
-        rua.setNome("Nome Rua");
-        rua.setStatus(1);
+        cidade.setEstado(estado);
+
 
         Bairro bairro=new Bairro();
         bairro.setNome("nome Bairro");
         bairro.setCidade(cidade);
         bairro.setStatus(1);
+
+        Rua rua=new Rua();
+        rua.setNome("Rua brasil");
+        rua.setStatus(1);
+        rua.setBairro(bairro);
+
+
 
         Setor setor=new Setor();
         setor.setNome("nome Setor");
@@ -129,13 +158,13 @@ public class UnidadeDeSaudeControlador {
 
         Complemento complemento=new Complemento();
         complemento.setStatus(1);
-        complemento.setDescricao("descricao Complemento");
+        complemento.setDescricao("qd 1,lt2");
 
         Imagem imagem=new Imagem();
         imagem.setNome("nome da imagem");
         imagem.setStatus(1);
         imagem.setLink("Link");
-        imagem.setUrl("urlImagem");
+        imagem.setUrl("/img/huana.jpg");
 
 
 
@@ -157,31 +186,31 @@ public class UnidadeDeSaudeControlador {
 
 
 
-        Localizacao localizacao=new Localizacao();
-        localizacao.setBairro(bairro);
-        localizacao.setRua(rua);
-        localizacao.setStatus(1);
-        localizacao.setLatitude("35.3333");
-        localizacao.setLongitude("40.2222");
-
-        bairro.setLocalizacao(localizacao);
-
+        Endereco endereco =new Endereco();
+        endereco.setRua(rua);
+        endereco.setStatus(1);
+        endereco.setLatitude("35.3333");
+        endereco.setLongitude("40.2222");
+        endereco.setRua(rua);
+        endereco.setComplemento(complemento);
 
 
 
-        e.setNome("Raiox2123");
-        e.setDescricao("Gratuito2123");
-        e.setHorario("horario2123");
+
+
+        e.setNome("Raiox");
+        e.setDescricao("Gratuito");
+        e.setHorario("00:00-00:00");
         e.setStatus(1);
         e.setValor((short)123);
 
         UnidadeDeSaude unidadeDeSaude = new UnidadeDeSaude();
-        unidadeDeSaude.setNome("nome Unidade de Saude");
+        unidadeDeSaude.setNome("Huana");
         unidadeDeSaude.setStatus(1);
-        unidadeDeSaude.setDescricao("descricao Unidade Saude");
-        unidadeDeSaude.setUrl("url");
+        unidadeDeSaude.setDescricao("A Unidade de Saúde atua através de um contrato de gestão a pedido do Governo do Estado de Goiás/Secretaria Estadual de Saúde com a FASA ");
+        unidadeDeSaude.setUrl("https://www.google.com.br/maps/place/Hospital+de+Urg%C3%AAncias+Dr.+Henrique+Santillo/@-16.2991781,-48.9442706,17z/data=!3m1!4b1!4m5!3m4!1s0x935ea418d2836dd3:0x7193ccf5f2b6a99b!8m2!3d-16.2991781!4d-48.9420819");
         unidadeDeSaude.setHorario("00:00-00:00");
-
+        unidadeDeSaude.setEndereco(endereco);
         unidadeDeSaudeRepositorio.save(unidadeDeSaude);
 
         PlantaoDia plantaoDia=new PlantaoDia();
@@ -190,7 +219,11 @@ public class UnidadeDeSaudeControlador {
         plantaoDia.setData(new Date());
         plantaoDia.setHorario("00:00-00:00");
         plantaoDia.setProfissional(profissional);
-        plantaoDia.setUnidadeSaude(unidadeDeSaude);
+
+
+        List<PlantaoDia> plantao=new ArrayList();
+
+       unidadeDeSaude.setPlantaoDia(plantao);
 
 
         List<Exames> exame=new ArrayList();

@@ -1,180 +1,380 @@
 ﻿
-<ion-view view-title="Noticias">
+<ion-view view-title="Unidade De Saúde">
     <ion-content>
-         <div class="container col-md-12 " style="margin-top:10px;">
-             
-                <div class="view-form">  
+        <ion-content>
+            <button id="fabUN"   class="button  button-fab button-fab-bottom-right" style=" background-color: #ff362a;">
+                <i class="icon ion-plus"></i>
+            </button>
 
-                    <form action="NoticiasSV?action=noticiatopo" name="topoSV" class="form-horizontal" method="post">
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading"><span class="glyphicon glyphicon-tasks"></span> Notícia de topo</div>
-                            <div class="panel-body">
-                                <div class="form-group">
+            <div id="popupAlterarUN" class="overlay">
+                <div class="popup">
+                    <h2> Alterar Unidade De Saúde</h2>
+                    <a class="close" href="#" ng-click="fechar()">&times;</a>
+                    <div class="content">
 
-                                    <label for="titulo" class="control-label col-md-2"> Título: </label>
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" name="tituloNoticiaTopo"  maxlength="50"  required />
-                                    </div>
 
-                                    <label for="imagem" class="control-label col-md-2"> Imagem:  </label>
-                                    <div class="col-md-4">
-                                        <input type="file" class="form-control" name="imagemNoticiaTopo"    required />
-                                    </div>
+                        <div class="view-form">
 
-                                </div> 
 
-                                <div class="form-group">
-                                    <label for="descricao" class="control-label col-md-2"> Descrição:  </label>
-                                    <div class="col-md-10">
-                                        <input type="text" class="form-control" name="descricaoNoticiaTopo"    required />
-                                    </div>
-                                </div> 
-                                <br/>
-                                <br/>
-                                <!-- BOTÕES DE AÇÕES -->
-                                <div class="form-group">
-                                    <div style="alignment-adjust: central" ><center>
-                                            <span id="load"></span>
-                                            <input type="submit" name="btnsubmit" class="btn btn-success" aria-label="Left Align">
-                                            <input type="reset" name="btnreset" class="btn btn-danger" aria-label="Right Align">
-                                        </center>
-                                    </div>
-                                    <div class="col-md-9" style="text-align: right"></div>
-                                </div>
+                            <form  name="unidadeSv" class="form-horizontal" method="post">
 
-                            </div>
-                        </div>
-                    </form>
-                    <form action="NoticiasSV?action=noticiacotidiana" name="cotidianaSV" class="form-horizontal" method="post">
+                                <div class="panel panel-default">
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading"><span class="glyphicon glyphicon-tasks"></span> Notícias cotidianas</div>
-                            <div class="panel-body">
-                                <div class="form-group">
+                                    <div class="panel-body">
+                                        <div class="form-group">
 
-                                    <label for="modelo" class="control-label col-md-2"> Título: </label>
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" name="tituloNoticiaCotidiana"  maxlength="50"  required />
-                                    </div>
+                                            <label name="nome" class="control-label col-md-2"> Nome: </label>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name="nome"  ng-model="un.nome" maxlength="50"  required />
+                                            </div>
+                                            <label name="descricao" class="control-label col-md-2"> Descrição: </label>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name="descricao"  ng-model="un.descricao" maxlength="50"  required />
+                                            </div>
+                                        </div>
 
-                                    <label for="imagem" class="control-label col-md-2"> Imagem:  </label>
-                                    <div class="col-md-4">
-                                        <input type="file" class="form-control" name="imagemNoticiaCotidiana"    required />
-                                    </div>
 
-                                </div> 
 
-                                <div class="form-group">
-                                    <label for="NoticiasSV?action=descricao" class="control-label col-md-2"> Descrição:  </label>
-                                    <div class="col-md-10">
-                                        <input type="text" class="form-control" name="descricaoNoticiaCotidiana"    required />
-                                    </div>
-                                </div> 
-                                <br/>
-                                <br/>
-                                <!-- BOTÕES DE AÇÕES -->
-                                <div class="form-group">
-                                    <div style="alignment-adjust: central" ><center>
-                                            <span id="load"></span>
-                                            <input type="submit" name="btnsubmit" class="btn btn-success" aria-label="Left Align">
-                                            <input type="reset" name="btnreset" class="btn btn-danger" aria-label="Right Align">
-                                        </center>
-                                    </div>
-                                    <div class="col-md-9" style="text-align: right"></div>
-                                </div>
 
-                            </div>
-                        </div>
-                    </form>
+                                        <div class="form-group">
 
-                    <form action="NoticiasSV?action=dicadesaude" name="dicasaude" class="form-horizontal" method="post">
+                                            <label name="imagem" class="control-label col-md-2"> Imagem:  </label>
+                                            <div class="col-md-4">
+                                                <input type="file" class="form-control" name="imagem"  ng-model="un.imagem"  required />
+                                            </div>
+                                            <label name="link" class="control-label col-md-2"> Link:  </label>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name="imagem"  ng-model="un.url"  required />
+                                            </div>
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading"><span class="glyphicon glyphicon-alert"></span> Dicas de Saúde</div>
-                            <div class="panel-body">
-                                <div class="form-group">
 
-                                    <label for="modelo" class="control-label col-md-2"> Título: </label>
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" name="tituloDicaSaude"  maxlength="50"  required />
-                                    </div>
+                                        </div>
 
-                                    <label for="imagem" class="control-label col-md-2"> Imagem:  </label>
-                                    <div class="col-md-4">
-                                        <input type="file" class="form-control" name="imagemDicaSaude"    required />
-                                    </div>
+                                        <div class="form-group">
 
-                                </div> 
+                                            <label name="complemento" class="control-label col-md-2"> Complemento:  </label>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name="complemento"  ng-model="un.endereco.complemento.descricao"   required />
+                                            </div>
 
-                                <div class="form-group">
-                                    <label for="descricao" class="control-label col-md-2"> Descrição:  </label>
-                                    <div class="col-md-10">
-                                        <input type="text" class="form-control" name="descricaoDicaSaude"    required />
-                                    </div>
-                                </div> 
-                                <br/>
-                                <br/>
-                                <!-- BOTÕES DE AÇÕES -->
-                                <div class="form-group">
-                                    <div style="alignment-adjust: central" ><center>
-                                            <span id="load"></span>
-                                            <input type="submit" name="btnsubmit" class="btn btn-success" aria-label="Left Align">
-                                            <input type="reset" name="btnreset" class="btn btn-danger" aria-label="Right Align">
-                                        </center>
-                                    </div>
-                                    <div class="col-md-9" style="text-align: right"></div>
-                                </div>
+                                            <label name="rua" class="control-label col-md-2"> Rua:  </label>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name="rua" ng-model="un.endereco.rua.nome"   required />
+                                            </div>
 
-                            </div>
-                        </div>
-                    </form>
+                                        </div>
 
-                    <form action="NoticiasSV?action=alterar" name="topoSV" class="form-horizontal" method="post"> 
+                                        <div class="form-group">
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading"><span class="glyphicon glyphicon-remove-circle"></span> Alterar/Remover</div>
-                            <div class="panel-body">
-                                <div class="form-group">
-                                    <label for="noticiatopo" class="control-label col-md-2"> Notícia de Topo: </label>
-                                    <div class="col-md-4">           
-                                        <input type="text" class="form-control" name="alterartopo" maxlength="60" placeholder="Digite o título da notícia de topo"  required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="load"></span>
-                                        <input type="submit" name="btnsubmit" value="Alterar"  class="btn btn-success" aria-label="Left Align">
-                                        <input type="reset" name="btnreset" value="Excluir" class="btn btn-danger" aria-label="Right Align">
-                                    </div>
-                                </div>
 
-                                <div class="form-group">
-                                    <label for="noticiatopo" class="control-label col-md-2"> Notícias Cotidianas: </label>
-                                    <div class="col-md-4">           
-                                        <input type="text" class="form-control" name="alteraNoticiaCotidiana" maxlength="60" placeholder="Digite o título da notícia de topo"  required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="load"></span>
-                                        <input type="submit" name="btnsubmit" value="Alterar"  class="btn btn-success" aria-label="Left Align">
-                                        <input type="reset" name="btnreset" value="Excluir" class="btn btn-danger" aria-label="Right Align">
+                                            <label name ="bairro" class="control-label col-md-2"> Bairro:  </label>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name="cidade" ng-model="un.endereco.rua.bairro.nome"    required />
+                                            </div>
+
+
+                                            <label name ="Cidade" class="control-label col-md-2"> Cidade:  </label>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name="cidade" ng-model="un.endereco.rua.bairro.cidade.nome"    required />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label name="Estado" class="control-label col-md-2"> Estado:  </label>
+                                            <div class="col-md-4">
+                                                <select name="estado" ng-model="un.endereco.rua.bairro.cidade.estado.nome"  >
+                                                    <option selected="-" value="" > Selecione o Estado (UF)</option>
+                                                    <option value="Acre">Acre</option>
+                                                    <option value="Alagoas">Alagoas</option>
+                                                    <option value="Amapá">Amapá</option>
+                                                    <option value="Amazonas">Amazonas</option>
+                                                    <option value="Bahia">Bahia</option>
+                                                    <option value="Ceará">Ceará</option>
+                                                    <option value="Distrito Federal">Distrito Federal</option>
+                                                    <option value="Espírito Santo">Espírito Santo</option>
+                                                    <option value="Goiás">Goiás</option>
+                                                    <option value="Maranhão">Maranhão</option>
+                                                    <option value="Mato Grosso">Mato Grosso</option>
+                                                    <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                                                    <option value="Minas Gerais">Minas Gerais</option>
+                                                    <option value="Pará">Pará</option>
+                                                    <option value="Paraíba">Paraíba</option>
+                                                    <option value="Paraná">Paraná</option>
+                                                    <option value="Pernambuco">Pernambuco</option>
+                                                    <option value="Piauí">Piauí</option>
+                                                    <option value="Rio de Janeiro">Rio de Janeiro</option>
+                                                    <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                                                    <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                                                    <option value="Rondônia">Rondônia</option>
+                                                    <option value="Roraima">Roraima</option>
+                                                    <option value="Santa Catarina">Santa Catarina</option>
+                                                    <option value="São Paulo">São Paulo</option>
+                                                    <option value="Sergipe">Sergipe</option>
+                                                    <option value="Tocantins">Tocantins</option>
+                                                </select>
+                                            </div>
+
+                                            <label name ="Pais" class="control-label col-md-2"> Pais:  </label>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name="pais" ng-model="un.endereco.rua.bairro.cidade.estado.pais.nome"    required />
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label name="Latitude" class="control-label col-md-2"> Latitude:  </label>
+                                            <div class="col-md-2">
+                                                <input type="text" class="form-control" name="latitude"  ng-model="un.endereco.latitude"  required />
+                                            </div>
+                                            <label name="Longitude" class="control-label col-md-2"> Longitude:  </label>
+                                            <div class="col-md-2">
+                                                <input type="text" class="form-control" name="longitude"  ng-model="un.endereco.longitude   "  required />
+                                            </div>
+                                            <label name="Longitude" class="control-label col-md-2"> Horario:  </label>
+                                            <div class="col-md-2">
+                                                <input type="text" class="form-control" name="longitude"  ng-model="un.horario   "  required />
+                                            </div>
+                                        </div>
+
+                                        <!-- BOTÕES DE AÇÕES -->
+                                        <div class="form-group">
+                                            <div style="alignment-adjust: central" ><center>
+
+                                                <button type="button" name="btnsubmit" class="btn btn-success" aria-label="Left Align" ng-click="salvar(un)">Salvar</button>
+                                                <button type="reset" name="btnreset" class="btn btn-danger" aria-label="Right Align">Limpar</button>
+                                            </center>
+                                            </div>
+                                            <div class="col-md-9" style="text-align: right"></div>
+                                        </div>
+
                                     </div>
                                 </div>
+                            </form>
 
-                                <div class="form-group">
-                                    <label for="noticiatopo" class="control-label col-md-2"> Dicas de saúde: </label>
-                                    <div class="col-md-4">           
-                                        <input type="text" class="form-control" name="alteraDicaSaude" maxlength="60" placeholder="Digite o título da notícia de topo"  required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="load"></span>
-                                        <input type="submit" name="btnsubmit" value="Alterar"  class="btn btn-success" aria-label="Left Align">
-                                        <input type="reset" name="btnreset" value="Excluir" class="btn btn-danger" aria-label="Right Align">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </div><!--fim View-form-->
+
+                    </div>
                 </div>
 
-                <!-- Nome do produto/marca sem sidebar quando for o pre-painel  -->
+            </div>
 
+
+
+            <div id="popupSalvarUN" class="overlay">
+                <div class="popup">
+                    <h2> Salvar Unidade De Saúde</h2>
+                    <a class="close" href="#" ng-click="fechar()">&times;</a>
+                    <div class="content">
+
+
+                        <div class="view-form">
+
+
+                            <form action="#" name="unidadeSv" class="form-horizontal" method="post">
+
+                                <div class="panel panel-default">
+
+                                    <div class="panel-body">
+                                        <div class="form-group">
+
+                                            <label name="nome" class="control-label col-md-2"> Nome: </label>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name="nome"  ng-model="un.nome" maxlength="50"  required />
+                                            </div>
+                                            <label name="descricao" class="control-label col-md-2"> Descrição: </label>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name="descricao"  ng-model="un.descricao" maxlength="50"  required />
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+
+                                            <label name="imagem" class="control-label col-md-2"> Imagem:  </label>
+                                            <div class="col-md-4">
+                                                <input type="file" class="form-control" name="imagem"  ng-model="un.imagem"  required />
+                                            </div>
+                                            <label name="link" class="control-label col-md-2"> Link:  </label>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name="imagem"  ng-model="un.url"  required />
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label name="complemento" class="control-label col-md-2"> Complemento:  </label>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name="complemento"  ng-model="un.endereco.complemento.descricao"   required />
+                                            </div>
+
+                                            <label name="rua" class="control-label col-md-2"> Rua:  </label>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name="rua" ng-model="un.endereco.rua.nome"   required />
+                                            </div>
+
+                                    </div>
+
+                                        <div class="form-group">
+
+
+                                            <label name ="bairro" class="control-label col-md-2"> Bairro:  </label>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name="cidade" ng-model="un.endereco.rua.bairro.nome"    required />
+                                            </div>
+
+
+                                            <label name ="Cidade" class="control-label col-md-2"> Cidade:  </label>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name="cidade" ng-model="un.endereco.rua.bairro.cidade.nome"    required />
+                                            </div>
+                                        </div>
+
+                                    <div class="form-group">
+                                            <label name="Estado" class="control-label col-md-2"> Estado:  </label>
+                                            <div class="col-md-4">
+                                                <select name="estado" ng-model="un.endereco.rua.bairro.cidade.estado.nome"  >
+                                                    <option selected="-" value="" > Selecione o Estado (UF)</option>
+                                                    <option value="Acre">Acre</option>
+                                                    <option value="Alagoas">Alagoas</option>
+                                                    <option value="Amapá">Amapá</option>
+                                                    <option value="Amazonas">Amazonas</option>
+                                                    <option value="Bahia">Bahia</option>
+                                                    <option value="Ceará">Ceará</option>
+                                                    <option value="Distrito Federal">Distrito Federal</option>
+                                                    <option value="Espírito Santo">Espírito Santo</option>
+                                                    <option value="Goiás">Goiás</option>
+                                                    <option value="Maranhão">Maranhão</option>
+                                                    <option value="Mato Grosso">Mato Grosso</option>
+                                                    <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                                                    <option value="Minas Gerais">Minas Gerais</option>
+                                                    <option value="Pará">Pará</option>
+                                                    <option value="Paraíba">Paraíba</option>
+                                                    <option value="Paraná">Paraná</option>
+                                                    <option value="Pernambuco">Pernambuco</option>
+                                                    <option value="Piauí">Piauí</option>
+                                                    <option value="Rio de Janeiro">Rio de Janeiro</option>
+                                                    <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                                                    <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                                                    <option value="Rondônia">Rondônia</option>
+                                                    <option value="Roraima">Roraima</option>
+                                                    <option value="Santa Catarina">Santa Catarina</option>
+                                                    <option value="São Paulo">São Paulo</option>
+                                                    <option value="Sergipe">Sergipe</option>
+                                                    <option value="Tocantins">Tocantins</option>
+                                                </select>
+                                            </div>
+
+                                        <label name ="Pais" class="control-label col-md-2"> Pais:  </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="pais" ng-model="un.endereco.rua.bairro.cidade.estado.pais.nome"    required />
+                                        </div>
+
+
+                                    </div>
+
+                                        <div class="form-group">
+
+                                            <label name="Latitude" class="control-label col-md-2"> Latitude:  </label>
+                                            <div class="col-md-2">
+                                                <input type="text" class="form-control" name="latitude"  ng-model="un.endereco.latitude"  required />
+                                            </div>
+                                            <label name="Longitude" class="control-label col-md-2"> Longitude:  </label>
+                                            <div class="col-md-2">
+                                                <input type="text" class="form-control" name="longitude"  ng-model="un.endereco.longitude   "  required />
+                                            </div>
+                                            <label name="Longitude" class="control-label col-md-2"> Horario:  </label>
+                                            <div class="col-md-2">
+                                                <input type="text" class="form-control" name="longitude"  ng-model="un.horario   "  required />
+                                            </div>
+                                        </div>
+
+                                        <!-- BOTÕES DE AÇÕES -->
+                                        <div class="form-group">
+                                            <div style="alignment-adjust: central" ><center>
+
+                                                <button type="button" name="btnsubmit" class="btn btn-success" aria-label="Left Align" ng-click="salvar(un)">Salvar</button>
+                                                <button type="reset" name="btnreset" class="btn btn-danger" aria-label="Right Align">Limpar</button>
+                                            </center>
+                                            </div>
+                                            <div class="col-md-9" style="text-align: right"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div><!--fim View-form-->
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+            <div class="container  " >
+
+
+
+                <div class="view-form col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <span class="glyphicon glyphicon-tasks"></span>Unidades De Saúdes</div>
+                        <div class="panel-body">
+
+                            <table class="table table-striped">
+                                <thead>
+                                <tr class="">
+                                    <th></th>
+                                    <th>Nome</th>
+                                    <th>Endereco</th>
+                                    <th>Descrição</th>
+                                    <th>Recursos</th>
+                                    <th></th>
+                                    <th></th>
+
+                                </tr>
+                                </thead>
+                                <tr ng-repeat="unidade in unidadeSaudes" class="">
+                                    <th><img src="{{unidade.imagem.url}}" style="height: 50px;width: 50px;"></th>
+                                    <th>{{unidade.nome}}</th>
+                                    <th>
+                                        {{unidade.endereco.complemento.descricao}} ,
+                                        {{unidade.endereco.rua.nome}} ,
+                                        {{unidade.endereco.rua.bairro.nome}} ,
+                                        {{unidade.endereco.rua.bairro.cidade.nome}} ,
+                                        {{unidade.endereco.rua.bairro.cidade.estado.nome}} ,
+                                        {{unidade.endereco.rua.bairro.cidade.estado.pais.nome}}
+                                    </th>
+                                    <th>{{unidade.descricao}}</th>
+                                    <th> <button data-toggle="modal" data-target="modalalterar" type="submit" name="recursos"  class="btn btn-alert" aria-label="Left Align" ng-click="alterar($index)">Recurso</button>
+                                    <th> <button data-toggle="modal" data-target="modalalterar" type="submit" name="Alterar"  class="btn btn-success" aria-label="Left Align" ng-click="setUN($index)">Altera</button>
+                                    </th>
+                                    <th> <button type="submit" name="Excluir" class="btn btn-danger" aria-label="Left Align" ng-click="deleteUn($index)">Remover</button>
+                                    </th>
+
+                                </tr>
+
+
+                            </table>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- Nome do produto/marca sem sidebar quando for o pre-painel  -->
+            </div>
+        </div><!---fim containner--->
     </ion-content>
 </ion-view>

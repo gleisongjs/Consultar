@@ -1,47 +1,91 @@
 
-<ion-view view-title="{{unidade.nome}}">
+<ion-view view-title="Hospital de Urgencias">
 
     <div class="bar bar-header bar-dark" >
-
+        <h1 class="title"></h1>
     </div>
     <ion-nav-bar class="bar-stable">
 
-        <ion-nav-buttons side="left"  >
-            <button class="button button-icon button-clear"style="bottom:5px;">
-                <img src="img/ic3.png"/>
-            </button>
-        </ion-nav-buttons>
-
-        <ion-nav-buttons side="right" >
-            <button class="button button-icon button-clear" ng-click="myGoBack()" style="bottom:5px;">
+        <ion-nav-buttons side="right"  >
+            <button class="button button-icon button-clear back_btn"      ng-click="myGoBack()">
                 <img src="img/arrow.png"/>
             </button>
         </ion-nav-buttons>
-        <ion-content class="main_bg">
-            <div class="news_detail " style="padding-top: 35px;" >
-                <div class="card">
-                    <div class="item item-divider">
-                        Profissionais
-                    </div>
-                    <div class="item item-text-wrap">
-                        <div ng-repeat="pr in profissionais">
+        <ion-nav-buttons side="left"  >
+            <button class="button button-icon button-clear" style="bottom:5px;">
+                <img src="img/ic3.png"/>
+            </button>
 
-                            <script>
-                                var epc=pr.especialidade;
-                                console.log(epc);
-                            </script>
-                            <div class="item item-text-wrap">
+        </ion-nav-buttons>
 
-                            <p>{{pr.especialidade}}:</p>
-                            {{pr.nome}}
-                                Horario:{{pr.horario}}
 
-                        </div>
-                    </div>
 
-                    </div>
+
+
+    </ion-nav-bar>
+
+    <ion-content class="main_bg">
+
+
+
+
+
+        <div class="news_detail " style="padding-top: 35px;" >
+            <ion-list>
+                <ion-item>
+                    <ion-avatar item-left>
+                        <img src="img/001.png" width="50px" height="50px">
+                    </ion-avatar>
+                    <h2>Finn</h2>
+                    <h3>Don't Know What To Do!</h3>
+                    <p>I've had a pretty messed up day. If we just...</p>
+                </ion-item>
+                <ion-item>
+                    <ion-avatar item-left>
+                        <img src="img/001.png" width="50px" height="50px">
+                    </ion-avatar>
+                    <h2>Finn</h2>
+                    <h3>Don't Know What To Do!</h3>
+                    <p>I've had a pretty messed up day. If we just...</p>
+                </ion-item>
+            </ion-list>
+
+
+
+            <div class="card">
+                <div class="item item-divider">
+                    Vacinas
+
                 </div>
+
+                <div class="item item-text-wrap" ng-repeat="vacina in vacinas">
+                    <ion-item>
+
+
+                        <h2>{{vacina.nome}}</h2>
+
+                        <h3>Descricao:</h3>
+                        <p>
+                            {{vacina.descricao}}
+                        </p>
+
+
+                        <h3>Horario:</h3>
+                        <p>
+                            {{vacina.horario}}
+                        </p>
+                        <h3>Valor:</h3>
+                        <p>
+                            {{vacina.valor}}
+                        </p>
+                    </ion-item>
+
+                </div>
+
+
+
             </div>
-        </ion-content>
+        </div>
+    </ion-content>
 
 </ion-view>

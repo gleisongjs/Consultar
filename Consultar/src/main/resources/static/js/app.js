@@ -88,10 +88,10 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
 
     });
 
-    app.config(function($stateProvider, $urlRouterProvider) {
+    app.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
 
         // $httpProvider.interceptors.push("timestampInterceptor");
-       // $httpProvider.interceptors.push("errorInterceptor");
+       $httpProvider.interceptors.push("errorInterceptor");
         // $httpProvider.interceptors.push("loadingInterceptor");
 
         // $ionicConfigProvider.tabs.position('bottom');
@@ -241,7 +241,9 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
                 url: '/localizacao',
                 views: {
                     'tab-localizacao': {
-                        templateUrl: 'templates/tab-localizacao.html'
+                        templateUrl: 'templates/tab-localizacao.html',
+
+                        cotrollerAs:'MapCtrl'
                     }
                 }
             })
@@ -254,31 +256,33 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
         $urlRouterProvider.otherwise('/login');
 
     });
-// angular.module("starter").factory("errorInterceptor", function ($q, $location) {
-//     return {
-//         responseError: function (rejection) {
-// //            console.log("errorInterceptor:"+rejection.status);
-//
-//             if (rejection.status === 404) {
-//   //              console.log("erro 404")
-//     //            $location.path("/error");
-//
-//             }
-//             if (rejection.status === 500) {
-//       //          console.log("erro 500")
-// //                $location.path("/login");
-//
-//             }
-//             if (rejection.status === 301) {
-//   //              console.log("erro 301")
-//     //            $location.path("/login");
-//
-//             }
-//             if (rejection.status === 400) {
-//       //          console.log("erro 400")
-//         //        $location.path("/error");
-//             }
-//             return $q.reject(rejection);
-//         }
-//     };
-// });
+angular.module("starter").factory("errorInterceptor", function ($q, $location) {
+    return {
+        responseError: function (rejection) {
+//            console.log("errorInterceptor:"+rejection.status);
+
+            if (rejection.status === 404) {
+  //              console.log("erro 404")
+    //            $location.path("/error");
+
+            }
+            if (rejection.status === 500) {
+               console.log("erro 500")
+                console.log(rejection.data)
+//                Mensagem.exibir("Erro","Erro 500");
+//                $location.path("/login");
+
+            }
+            if (rejection.status === 301) {
+  //              console.log("erro 301")
+    //            $location.path("/login");
+
+            }
+            if (rejection.status === 400) {
+      //          console.log("erro 400")
+        //        $location.path("/error");
+            }
+            return $q.reject(rejection);
+        }
+    };
+});

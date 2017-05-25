@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface UnidadeDeSaudeRepositorio extends JpaRepository<UnidadeDeSaude, Long> {
-    UnidadeDeSaude findOne(long id);
+public interface UnidadeDeSaudeRepositorio extends JpaRepository<UnidadeDeSaude, Integer> {
+    UnidadeDeSaude findOne(int id);
 }

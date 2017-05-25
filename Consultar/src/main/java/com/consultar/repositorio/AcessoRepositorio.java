@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface AcessoRepositorio extends JpaRepository<Acesso, Long> {
+public interface AcessoRepositorio extends JpaRepository<Acesso, Integer> {
     Acesso findByEmail(String email);
 }

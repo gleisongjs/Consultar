@@ -2,9 +2,6 @@ package com.consultar.entidade;
 // Generated 31/03/2017 19:48:10 by Hibernate Tools 4.3.1
 
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -15,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @Table(name="rua"
     ,catalog="consultar"
 )
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idrua")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idrua")
 
 public class Rua  implements java.io.Serializable {
 
@@ -38,10 +35,31 @@ public class Rua  implements java.io.Serializable {
     @Column(name = "status")
      private Integer status;
 
-//    public Rua(String nome, Integer status) {
-//        this.setNome(nome);
-//        this.setStatus(status);
+
+
+//    @OneToOne(mappedBy = "rua", fetch = FetchType.LAZY)
+//    private Endereco endereco;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "bairro_id")
+    private Bairro bairro;
+
+    public Bairro getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(Bairro bairro) {
+        this.bairro = bairro;
+    }
+
+//    public Endereco getEndereco() {
+//        return endereco;
 //    }
+//
+//    public void setEndereco(Endereco endereco) {
+//        this.endereco = endereco;
+//    }
+//
 
 
     public Integer getIdrua() {

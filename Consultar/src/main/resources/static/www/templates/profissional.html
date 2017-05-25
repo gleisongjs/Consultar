@@ -1,180 +1,192 @@
 ﻿
-<ion-view view-title="Noticias">
+<ion-view view-title="Profissionais">
     <ion-content>
-         <div class="container col-md-12 " style="margin-top:10px;">
-             
-                <div class="view-form">  
+        <button id="fabProfissional"   class="button  button-fab button-fab-bottom-right" style=" background-color: #ff362a;">
+            <i class="icon ion-plus"></i>
+        </button>
 
-                    <form action="NoticiasSV?action=noticiatopo" name="topoSV" class="form-horizontal" method="post">
+        <div id="popupAlterarProfissional" class="overlay">
+            <div class="popup">
+                <h2> Alterar Profissional</h2>
+                <a class="close" href="#" ng-click="fechar()" >&times;</a>
+                <div class="content">
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading"><span class="glyphicon glyphicon-tasks"></span> Notícia de topo</div>
-                            <div class="panel-body">
-                                <div class="form-group">
 
-                                    <label for="titulo" class="control-label col-md-2"> Título: </label>
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" name="tituloNoticiaTopo"  maxlength="50"  required />
+                    <div class="view-form">
+
+                        <form  class="form-horizontal">
+
+                            <div class="panel panel-default">
+                                <!--<div class="panel-heading"></div>-->
+                                <div class="panel-body">
+                                    <div class="form-group">
+
+                                        <label for="titulo" class="control-label col-md-2" > Nome: </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="tituloNoticiaTopo" ng-model="altprofissional.nome"  maxlength="50"  required />
+                                        </div>
+
+                                        <label for="imagem" class="control-label col-md-2"> Descrição:  </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="imagemNoticiaTopo" ng-model="altprofissional.descricao"   required />
+                                        </div>
+
                                     </div>
 
-                                    <label for="imagem" class="control-label col-md-2"> Imagem:  </label>
-                                    <div class="col-md-4">
-                                        <input type="file" class="form-control" name="imagemNoticiaTopo"    required />
+                                    <div class="form-group">
+                                        <label for="descricao" class="control-label col-md-2"> Especialidade:  </label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" name="descricaoNoticiaTopo" ng-model="altprofissional.especialidade"   required />
+                                        </div>  <label for="descricao" class="control-label col-md-2"> CRM:  </label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" name="descricaoNoticiaTopo" ng-model="altprofissional.crm"   required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="descricao" class="control-label col-md-2"> Horario:  </label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" name="descricaoNoticiaTopo" ng-model="altprofissional.horario"   required />
+                                        </div>
                                     </div>
 
-                                </div> 
 
-                                <div class="form-group">
-                                    <label for="descricao" class="control-label col-md-2"> Descrição:  </label>
-                                    <div class="col-md-10">
-                                        <input type="text" class="form-control" name="descricaoNoticiaTopo"    required />
-                                    </div>
-                                </div> 
-                                <br/>
-                                <br/>
-                                <!-- BOTÕES DE AÇÕES -->
-                                <div class="form-group">
-                                    <div style="alignment-adjust: central" ><center>
+                                    <!-- BOTÕES DE AÇÕES -->
+                                    <div class="form-group">
+                                        <div style="alignment-adjust: central" ><center>
                                             <span id="load"></span>
-                                            <input type="submit" name="btnsubmit" class="btn btn-success" aria-label="Left Align">
-                                            <input type="reset" name="btnreset" class="btn btn-danger" aria-label="Right Align">
+                                            <button ng-click="salvar(altprofissional)" type="submit" name="btnsubmit" class="btn btn-success" aria-label="Left Align">Salvar</button>
+                                            <button type="reset" name="btnreset" class="btn btn-danger" aria-label="Right Align">Limpar</button>
                                         </center>
+                                        </div>
+                                        <div class="col-md-9" style="text-align: right"></div>
                                     </div>
-                                    <div class="col-md-9" style="text-align: right"></div>
+
                                 </div>
-
                             </div>
-                        </div>
-                    </form>
-                    <form action="NoticiasSV?action=noticiacotidiana" name="cotidianaSV" class="form-horizontal" method="post">
+                        </form>
+                    </div>
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading"><span class="glyphicon glyphicon-tasks"></span> Notícias cotidianas</div>
-                            <div class="panel-body">
-                                <div class="form-group">
+                </div>
+            </div>
 
-                                    <label for="modelo" class="control-label col-md-2"> Título: </label>
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" name="tituloNoticiaCotidiana"  maxlength="50"  required />
+        </div>
+        <div id="popupSalvarProfissional" class="overlay">
+            <div class="popup">
+                <h2> Inserir Profissional</h2>
+                <a class="close" href="#" ng-click="fechar()" >&times;</a>
+                <div class="content">
+
+
+                    <div class="view-form">
+
+                        <form  class="form-horizontal" >
+
+                            <div class="panel panel-default">
+                                <!--<div class="panel-heading"></div>-->
+                                <div class="panel-body">
+                                    <div class="form-group">
+
+                                        <label name="titulo" class="control-label col-md-2" > Nome: </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="tituloNoticiaTopo" ng-model="profissional.nome"  maxlength="50"  required />
+                                        </div>
+
+                                        <label name="imagem" class="control-label col-md-2"> Descrição:  </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="imagemNoticiaTopo" ng-model="profissional.descricao"   required />
+                                        </div>
+
                                     </div>
 
-                                    <label for="imagem" class="control-label col-md-2"> Imagem:  </label>
-                                    <div class="col-md-4">
-                                        <input type="file" class="form-control" name="imagemNoticiaCotidiana"    required />
+                                    <div class="form-group">
+                                        <label name="descricao" class="control-label col-md-2"> Especialidade:  </label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" name="descricaoNoticiaTopo" ng-model="profissional.especialidade"   required />
+                                        </div>
+                                        <label name="descricao" class="control-label col-md-2"> CRM:  </label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" name="descricaoNoticiaTopo" ng-model="profissional.crm"   required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label name="descricao" class="control-label col-md-2"> Horario:  </label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" name="descricaoNoticiaTopo" ng-model="profissional.horario"   required />
+                                        </div>
                                     </div>
 
-                                </div> 
 
-                                <div class="form-group">
-                                    <label for="NoticiasSV?action=descricao" class="control-label col-md-2"> Descrição:  </label>
-                                    <div class="col-md-10">
-                                        <input type="text" class="form-control" name="descricaoNoticiaCotidiana"    required />
-                                    </div>
-                                </div> 
-                                <br/>
-                                <br/>
-                                <!-- BOTÕES DE AÇÕES -->
-                                <div class="form-group">
-                                    <div style="alignment-adjust: central" ><center>
-                                            <span id="load"></span>
-                                            <input type="submit" name="btnsubmit" class="btn btn-success" aria-label="Left Align">
-                                            <input type="reset" name="btnreset" class="btn btn-danger" aria-label="Right Align">
+                                    <!-- BOTÕES DE AÇÕES -->
+                                    <div class="form-group">
+                                        <div style="alignment-adjust: central" ><center>
+                                            <span id="load2"></span>
+                                            <button ng-click="salvar(profissional)" type="button" name="btnsubmit" class="btn btn-success" aria-label="Left Align">Salvar</button>
+                                            <button type="reset" name="btnreset" class="btn btn-danger" aria-label="Right Align">Limpar</button>
                                         </center>
-                                    </div>
-                                    <div class="col-md-9" style="text-align: right"></div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </form>
-
-                    <form action="NoticiasSV?action=dicadesaude" name="dicasaude" class="form-horizontal" method="post">
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading"><span class="glyphicon glyphicon-alert"></span> Dicas de Saúde</div>
-                            <div class="panel-body">
-                                <div class="form-group">
-
-                                    <label for="modelo" class="control-label col-md-2"> Título: </label>
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" name="tituloDicaSaude"  maxlength="50"  required />
+                                        </div>
+                                        <div class="col-md-9" style="text-align: right"></div>
                                     </div>
 
-                                    <label for="imagem" class="control-label col-md-2"> Imagem:  </label>
-                                    <div class="col-md-4">
-                                        <input type="file" class="form-control" name="imagemDicaSaude"    required />
-                                    </div>
-
-                                </div> 
-
-                                <div class="form-group">
-                                    <label for="descricao" class="control-label col-md-2"> Descrição:  </label>
-                                    <div class="col-md-10">
-                                        <input type="text" class="form-control" name="descricaoDicaSaude"    required />
-                                    </div>
-                                </div> 
-                                <br/>
-                                <br/>
-                                <!-- BOTÕES DE AÇÕES -->
-                                <div class="form-group">
-                                    <div style="alignment-adjust: central" ><center>
-                                            <span id="load"></span>
-                                            <input type="submit" name="btnsubmit" class="btn btn-success" aria-label="Left Align">
-                                            <input type="reset" name="btnreset" class="btn btn-danger" aria-label="Right Align">
-                                        </center>
-                                    </div>
-                                    <div class="col-md-9" style="text-align: right"></div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </form>
-
-                    <form action="NoticiasSV?action=alterar" name="topoSV" class="form-horizontal" method="post"> 
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading"><span class="glyphicon glyphicon-remove-circle"></span> Alterar/Remover</div>
-                            <div class="panel-body">
-                                <div class="form-group">
-                                    <label for="noticiatopo" class="control-label col-md-2"> Notícia de Topo: </label>
-                                    <div class="col-md-4">           
-                                        <input type="text" class="form-control" name="alterartopo" maxlength="60" placeholder="Digite o título da notícia de topo"  required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="load"></span>
-                                        <input type="submit" name="btnsubmit" value="Alterar"  class="btn btn-success" aria-label="Left Align">
-                                        <input type="reset" name="btnreset" value="Excluir" class="btn btn-danger" aria-label="Right Align">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="noticiatopo" class="control-label col-md-2"> Notícias Cotidianas: </label>
-                                    <div class="col-md-4">           
-                                        <input type="text" class="form-control" name="alteraNoticiaCotidiana" maxlength="60" placeholder="Digite o título da notícia de topo"  required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="load"></span>
-                                        <input type="submit" name="btnsubmit" value="Alterar"  class="btn btn-success" aria-label="Left Align">
-                                        <input type="reset" name="btnreset" value="Excluir" class="btn btn-danger" aria-label="Right Align">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="noticiatopo" class="control-label col-md-2"> Dicas de saúde: </label>
-                                    <div class="col-md-4">           
-                                        <input type="text" class="form-control" name="alteraDicaSaude" maxlength="60" placeholder="Digite o título da notícia de topo"  required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="load"></span>
-                                        <input type="submit" name="btnsubmit" value="Alterar"  class="btn btn-success" aria-label="Left Align">
-                                        <input type="reset" name="btnreset" value="Excluir" class="btn btn-danger" aria-label="Right Align">
-                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+        <!--<label class="control-label">Select File</label>-->
+        <!--<input id="input-2" name="input2[]" type="file" class="file" multiple data-show-upload="false" data-show-caption="true">-->
+
+        <div class="container" >
+            <div class="view-form col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><span class="glyphicon glyphicon-tasks"></span>Profissionais</div>
+                    <div class="panel-body">
+
+                        <table class="table table-striped">
+                            <thead>
+                            <tr class="">
+                                <th>Nome</th>
+                                <th>Descrição</th>
+                                <th>Especialidade</th>
+                                <th>CRM</th>
+                                <th>Horario</th>
+                                <th></th>
+                                <th></th>
+
+                            </tr>
+                            </thead>
+                            <tr ng-repeat="profissional in profissionais" class="">
+
+                                <th>{{profissional.nome}}</th>
+                                <th>{{profissional.descricao}}</th>
+                                <th>{{profissional.especialidade}}</th>
+                                <th>{{profissional.crm}}</th>
+                                <th>{{profissional.horario}}</th>
+                                <th> <button data-toggle="modal" data-target="modalalterar" type="submit" name="Alterar"  class="btn btn-success" aria-label="Left Align" ng-click="setprofissional($index)">Altera</button>
+                                </th>
+                                <th> <button type="submit" name="Excluir" class="btn btn-danger" aria-label="Left Align" ng-click="remover($index)">Remover</button>
+                                </th>
+
+                            </tr>
+
+
+                        </table>
+
+                    </div>
                 </div>
 
-                <!-- Nome do produto/marca sem sidebar quando for o pre-painel  -->
 
+            </div>
+            <!-- Nome do produto/marca sem sidebar quando for o pre-painel  -->
+        </div>
+        </div><!---fim containner--->
     </ion-content>
 </ion-view>

@@ -2,9 +2,6 @@ package com.consultar.entidade;
 // Generated 31/03/2017 19:48:10 by Hibernate Tools 4.3.1
 
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -16,7 +13,7 @@ import java.util.List;
 @Table(name="unidade_de_saude"
     ,catalog="consultar"
 )
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idunidadeDeSaude")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idunidadeDeSaude")
 
 public class UnidadeDeSaude  implements java.io.Serializable {
 
@@ -32,7 +29,7 @@ public class UnidadeDeSaude  implements java.io.Serializable {
     @Column(name ="unidade_saude_id")
 
 
-     private Long idunidadeDeSaude;
+     private Integer idunidadeDeSaude;
     @NotNull
     @Column(name = "nome")
      private String nome;
@@ -44,10 +41,10 @@ public class UnidadeDeSaude  implements java.io.Serializable {
      private Integer status;
 
 
-    @Column(name = "descricao")
+    @Column(name = "descricao",length = 1000    )
     private String descricao;
     @NotNull
-    @Column(name = "url")
+    @Column(name = "url",length=1000)
     private String url;
 
 
@@ -92,26 +89,23 @@ public class UnidadeDeSaude  implements java.io.Serializable {
             inverseJoinColumns=@JoinColumn(name = "profissional_id"))
   //  @JsonManagedReference(value = "unidade_de_saude_exame")
     private List<Profissional> profissional;
-
-    @OneToMany(mappedBy = "unidadeSaude",cascade=CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "unidade_de_saude_plantao_dia",
+            joinColumns=@JoinColumn(name = "unidade_de_saude_id"),
+            inverseJoinColumns=@JoinColumn(name = "plantao_dia_id"))
     private List<PlantaoDia> plantaoDia;
 
-    @OneToMany(mappedBy = "unidadeDeSaude",cascade=CascadeType.ALL)
-    private List<Leito> leito;
+//    @OneToMany(mappedBy = "unidadeDeSaude",cascade=CascadeType.ALL)
+//    private List<Leito> leito;
 
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "usuario_id")
     private  Usuario usuario;
 
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "endereco_id")
+    private  Endereco endereco;
 
-
-    public List<Profissional> getProfissional() {
-        return profissional;
-    }
-
-    public void setProfissional(List<Profissional> profissional) {
-        this.profissional = profissional;
-    }
 
     public List<PlantaoDia> getPlantaoDia() {
         return plantaoDia;
@@ -121,19 +115,35 @@ public class UnidadeDeSaude  implements java.io.Serializable {
         this.plantaoDia = plantaoDia;
     }
 
-    public List<Leito> getLeito() {
-        return leito;
+    public Endereco getEndereco() {
+        return endereco;
     }
 
-    public void setLeito(List<Leito> leito) {
-        this.leito = leito;
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
-    public Long  getIdunidadeDeSaude() {
+    public List<Profissional> getProfissional() {
+        return profissional;
+    }
+
+    public void setProfissional(List<Profissional> profissional) {
+        this.profissional = profissional;
+    }
+
+//    public List<Leito> getLeito() {
+//        return leito;
+//    }
+//
+//    public void setLeito(List<Leito> leito) {
+//        this.leito = leito;
+//    }
+
+    public Integer  getIdunidadeDeSaude() {
         return idunidadeDeSaude;
     }
 
-    public void setIdunidadeDeSaude(Long idunidadeDeSaude) {
+    public void setIdunidadeDeSaude(Integer idunidadeDeSaude) {
         this.idunidadeDeSaude = idunidadeDeSaude;
     }
 
@@ -218,13 +228,13 @@ public class UnidadeDeSaude  implements java.io.Serializable {
         this.exames = exames;
     }
 
-    public List<Leito> getLeitos() {
-        return leito;
-    }
-
-    public void setLeitos(List<Leito> leitos) {
-        this.leito = leitos;
-    }
+//    public List<Leito> getLeitos() {
+//        return leito;
+//    }
+//
+//    public void setLeitos(List<Leito> leitos) {
+//        this.leito = leitos;
+//    }
 
     public Usuario getUsuario() {
         return usuario;

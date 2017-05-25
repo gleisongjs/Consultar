@@ -29,7 +29,8 @@ public class AcessoControlador {
     PermissaoRepositorio permissaoRepositorio;
     //@Autowired
     //PermissaoRepositorio  permissaoRepositorio;
-
+    Permissao permissao=null;
+    List<Permissao> permissoes=null;
     @RequestMapping(method = RequestMethod.GET)
     public List<Acesso> listar(){
 
@@ -37,7 +38,7 @@ public class AcessoControlador {
     }
 
     @RequestMapping(value="/{id}", method = RequestMethod.GET)
-    public Acesso buscarPeloId(@PathVariable long id){
+    public Acesso buscarPeloId(@PathVariable int id){
         return acessoRepositorio.findOne(id);
     }
 
@@ -47,16 +48,32 @@ public class AcessoControlador {
     }
     @RequestMapping(method = RequestMethod.POST)
     public Acesso criar(@RequestBody Acesso acesso){
-        Permissao permissao=permissaoRepositorio.findByNome("USER");
 
-        System.out.println(acesso.toString());
+        if (acesso.getPermissoes()==null) {
+
+             permissao = permissaoRepositorio.findByNome("USER");
+             if (permissao==null){
+                 permissao=new Permissao();
+                 permissao.setNome("USER") ;
+                permissao=permissaoRepositorio.save(permissao);
+             }
+
+             permissoes = new ArrayList<>();
+            permissoes.add(permissao);
+            acesso.setPermissoes(permissoes);
+        }
+
+        if (acesso.getIdacesso()==null){
+            Acesso aux=acessoRepositorio.findByEmail(acesso.getEmail());
+            if (aux!=null){
+                throw new Error("USUARIO Ja EXISTE");
+            }
+
+        }
+//        System.out.println(acesso.toString());
         PasswordEncoder p=passwordEncoder();
-
+        acesso.setPermissoes(permissoes);
         acesso.setSenha(p.encode(acesso.getSenha()));
-        List a=new ArrayList();
-
-             a.add(permissao);
-//        permissaoRepositorio.save(permissao);
 
 
   //      pessoa.setPermissoes(a);
@@ -71,11 +88,16 @@ public class AcessoControlador {
     }
 
     @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
-    public void deletar(@PathVariable long id){
+    public void deletar(@PathVariable int id){
         Acesso pessoa = acessoRepositorio.findOne(id);
         if(pessoa != null){
             acessoRepositorio.delete(pessoa);
         }
+    }
+    @RequestMapping(value="/alterar", method = RequestMethod.POST)
+    public void alterar(@RequestBody Acesso pessoa){
+
+        acessoRepositorio.save(pessoa);
     }
 
 

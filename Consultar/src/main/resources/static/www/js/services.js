@@ -7,6 +7,26 @@ angular.module('starter.services', [])
 
   return {
 
+      imagem : function(uri,id,callback) {
+          $.ajax({
+              url: url+uri,
+              type: "POST",
+              data: new FormData($("#"+id)[0]),
+              enctype: 'multipart/form-data',
+              processData: false,
+              contentType: false,
+              cache: false,
+              success: function (data) {
+                  // Handle upload success
+                  $("#upload-file-message").text("File Upload Operation is Successful").addClass("alert alert-success");
+              callback(data);
+              },
+              error: function () {
+                  // Handle upload error
+                  $("#upload-file-message").text("File Upload Operation is UnSuccessful").addClass("alert alert-danger");
+              }
+          });
+      },
           autenticar: function(uri,usuario,callback) {
               console.log('Logando:');
           $.ajax({type: "POST", url: url+uri, beforeSend: function(xhr) {

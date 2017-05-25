@@ -38,8 +38,38 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             }
         }
     })
+        .state('login', {
+            url: '/login',
+            templateUrl: 'templates/login.html'
+        })
+        .state('cadastrar', {
+        url: '/cadastrar',
+        templateUrl: 'templates/cadastrar.html'
+                // ,
+                // controller: 'unidadeSaudeCtrl'
 
-    .state('app.feednoticia', {
+
+    })
+    //
+    // .state('app.feednoticia', {
+    //     url: '/feednoticia',
+    //     views: {
+    //         'menuContent': {
+    //             templateUrl: 'templates/feednoticia.html',
+    //             controller: 'feedNoticiaCtrl'
+    //         }
+    //     }
+    // })
+        .state('app.recursos', {
+        url: '/recursos',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/recurso.html'
+                // ,
+                // controller: 'feedNoticiaCtrl'
+            }
+        }
+    }).state('app.feednoticia', {
         url: '/feednoticia',
         views: {
             'menuContent': {
