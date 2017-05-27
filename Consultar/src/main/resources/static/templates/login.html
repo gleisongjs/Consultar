@@ -30,4 +30,40 @@
         </div>
     </form>
   </ion-content>
+
+
+    <ion-content class="login_page" scroll="false" style="background:#afd9ee">
+        <div class="container col-md-12">
+
+            <div class="container" align="center">
+                <img class="img-circle" id="logo" src=""img/logo.png"">
+
+            </div>
+
+            <!-- Begin # DIV Form -->
+            <div id="div-forms">
+
+                <!-- Begin # Login Form -->
+                <div class="container col-md-4"> </div>
+
+                <div class="container col-md-4">
+
+                    <form id="login-form"  align="center">
+                        <input id="login_username" class="form-control" type="text" placeholder="Email"  ng-model="usuario.email" ng-required="true">
+                        <br/>
+                        <input id="login_password" class="form-control" type="password" placeholder="senha"  ng-model="usuario.senha" ng-required="true">
+                        <br/>
+                        <a href="#/tab/news"<button type="submit" class="btn btn-primary btn-lg btn-block">Entrar</a>
+                    </form>
+                </div>
+                <div class ="container col-md-4"></div>
+            </div>
+        </div>
+
+        <div class ="container" align="center">
+            <button id="login_lost_btn" type="button" class="btn btn-link">Esqueceu a senha?</button>
+            <a href = "#/cadastro" <button id="login_register_btn" type="button" class="btn btn-link">Cadastre-se</button></a>
+        </div>
+    </ion-content>
+
 </ion-view>
